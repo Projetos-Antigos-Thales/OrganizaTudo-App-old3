@@ -16,5 +16,14 @@ namespace OrganizaTudo
         {
             InitializeComponent();
         }
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+        private async void btnSair_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
     }
 }
