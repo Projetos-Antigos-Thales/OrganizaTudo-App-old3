@@ -1,10 +1,5 @@
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\OrganizaTudo.Android.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\OrganizaTudo.Android.pdb
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\com.companyname.organizatudo.apk
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\com.companyname.organizatudo.aab
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\com.companyname.organizatudo-Signed.aab
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\com.companyname.organizatudo-Signed.apk
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\com.companyname.organizatudo-Signed.apk.idsig
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\OrganizaTudo.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\OrganizaTudo.pdb
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\MonoAndroid,Version=v11.0.AssemblyAttributes.cs
@@ -36,10 +31,7 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\OrganizaTudo.Android.csproj.CopyComplete
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\OrganizaTudo.Android.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\OrganizaTudo.Android.pdb
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\bin\com.companyname.organizatudo.apk
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\bin\base.zip
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\bin\com.companyname.organizatudo.aab
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\bin\com.companyname.organizatudo.apks
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\res\values\styles.xml
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\res\values\colors.xml
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\res\mipmap-anydpi-v26\icon.xml
@@ -545,7 +537,6 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\src\mono\MonoPackageManager_Resources.java
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\src\xamarin\essentials\fileProvider.java
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\bin\packaged_resources
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\src\com\companyname\organizatudo\R.java
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\compressed_assemblies.arm64-v8a.s
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\compressed_assemblies.armeabi-v7a.s
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\compressed_assemblies.x86.s
@@ -574,3 +565,12 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\com.thaleslj.organizatudo.apk
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\com.thaleslj.organizatudo.aab
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\com.thaleslj.organizatudo-Signed.aab
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\com.thaleslj.organizatudo-Signed.apk
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\bin\Debug\com.thaleslj.organizatudo-Signed.apk.idsig
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\bin\com.thaleslj.organizatudo.apk
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\bin\com.thaleslj.organizatudo.aab
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\bin\com.thaleslj.organizatudo.apks
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\src\com\thaleslj\organizatudo\R.java

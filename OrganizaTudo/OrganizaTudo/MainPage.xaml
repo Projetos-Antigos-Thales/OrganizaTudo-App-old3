@@ -11,7 +11,7 @@
 
         <Entry ClassId="txtSenha" Placeholder="Senha" FontSize="Large" Margin="40,20,40,0" IsPassword="True" />
 
-        <Button Clicked="btnLogin_Clicked" BorderRadius="10" FontSize="Large" Text="LOGIN" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" ClassId="btnLogin"></Button>
+        <Button Clicked="btnLogin_Clicked" BorderRadius="10" FontSize="Medium" Text="ACESSAR" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" ClassId="btnLogin"></Button>
         
         <Button Clicked="btnCriarConta_Clicked" TextColor="#35C0ED" FontSize="15" Margin="0,5,0,0" Text="CRIAR CONTA" BackgroundColor="Transparent"></Button>
         
