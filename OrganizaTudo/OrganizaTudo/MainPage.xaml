@@ -4,11 +4,17 @@
              x:Class="OrganizaTudo.MainPage" Title="" NavigationPage.HasNavigationBar="False">
 
     <StackLayout>
-        <Label TextColor="#070707" FontSize="35" HorizontalTextAlignment="Center" Margin="0,30,0,0">ORGANIZA TUDO</Label>
-        <Entry  Margin="40,20,40,0" FontSize="Large" Placeholder="Apelido" BackgroundColor="#e4e4e4" TextColor="Black" PlaceholderColor="DarkGray" ClassId="txtApelido" ScaleX="1" InputTransparent="False" />
-        <Entry Placeholder="Senha" FontSize="Large" IsPassword="True" Margin="40,10,40,0" BackgroundColor="#e4e4e4" TextColor="Black" PlaceholderColor="DarkGray"  ClassId="txtSenha"></Entry>
-        <Button Clicked="btnLogin_Clicked" BorderRadius="5" FontSize="Large" Text="LOGIN" Margin="40,10,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" ClassId="btnLogin"></Button>
-        <Button Clicked="btnCriarConta_Clicked" TextColor="#35C0ED" FontSize="15" Margin="0,15,0,0" Text="CRIAR CONTA" BackgroundColor="Transparent"></Button>
+        
+        <Label FontSize="35" HorizontalTextAlignment="Center" Margin="0,30,0,0">ORGANIZA TUDO</Label>
+
+        <Entry ClassId="txtApelido" Placeholder="Apelido" FontSize="Large" Margin="40,20,40,0" />
+
+        <Entry ClassId="txtSenha" Placeholder="Senha" FontSize="Large" Margin="40,20,40,0" IsPassword="True" />
+
+        <Button Clicked="btnLogin_Clicked" BorderRadius="10" FontSize="Large" Text="LOGIN" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" ClassId="btnLogin"></Button>
+        
+        <Button Clicked="btnCriarConta_Clicked" TextColor="#35C0ED" FontSize="15" Margin="0,5,0,0" Text="CRIAR CONTA" BackgroundColor="Transparent"></Button>
+        
     </StackLayout>
 
 </ContentPage>

@@ -6034,8 +6034,9 @@ public final class R {
     public static final int switch_thumb_normal_material_light=0x7f0500cc;
     public static final int test_mtrl_calendar_day=0x7f0500cd;
     public static final int test_mtrl_calendar_day_selected=0x7f0500ce;
-    public static final int tooltip_background_dark=0x7f0500cf;
-    public static final int tooltip_background_light=0x7f0500d0;
+    public static final int textColor=0x7f0500cf;
+    public static final int tooltip_background_dark=0x7f0500d0;
+    public static final int tooltip_background_light=0x7f0500d1;
   }
   public static final class dimen {
     public static final int abc_action_bar_content_inset_material=0x7f060000;
