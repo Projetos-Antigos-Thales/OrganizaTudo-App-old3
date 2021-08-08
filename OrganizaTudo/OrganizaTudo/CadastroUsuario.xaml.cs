@@ -16,5 +16,13 @@ namespace OrganizaTudo
         {
             InitializeComponent();
         }
+
+        private async void btnCriarConta_Clicked(object sender, EventArgs e)
+        {
+            txtApelido.Text = "";
+            txtEmail.Text = "";
+            txtSenha.Text = "";
+            await Navigation.PopAsync();
+        }
     }
 }

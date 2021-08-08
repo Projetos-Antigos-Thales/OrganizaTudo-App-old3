@@ -19,6 +19,8 @@ namespace OrganizaTudo
 
         private async void btnLogin_Clicked(object sender, EventArgs e)
         {
+            txtApelido.Text = "";
+            txtSenha.Text = "";
             await Navigation.PushAsync(new Home());
         }
 

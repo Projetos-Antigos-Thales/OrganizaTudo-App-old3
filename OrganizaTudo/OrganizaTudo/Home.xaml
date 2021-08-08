@@ -7,7 +7,9 @@
 
     <ContentPage Title="Perfil">
         <StackLayout>
-            <Button Clicked="btnSair_Clicked" BorderRadius="10" FontSize="Medium" Text="SAIR" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED"></Button>
+
+            <Button x:Name="btnSair" Clicked="btnSair_Clicked" BorderRadius="10" FontSize="Medium" Text="SAIR" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED"></Button>
+            
         </StackLayout>
     </ContentPage>
 
