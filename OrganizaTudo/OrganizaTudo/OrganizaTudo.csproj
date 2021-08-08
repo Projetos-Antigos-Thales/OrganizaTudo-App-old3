@@ -16,10 +16,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Cadastro-Usuario.xaml">
+    <Compile Update="CadastroUsuario.xaml.cs">
+      <DependentUpon>CadastroUsuario.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="CadastroUsuario.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Home.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Login.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
