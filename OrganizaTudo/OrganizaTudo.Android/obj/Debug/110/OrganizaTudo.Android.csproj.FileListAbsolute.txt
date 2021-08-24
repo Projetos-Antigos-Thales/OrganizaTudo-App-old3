@@ -574,3 +574,5 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\bin\com.thaleslj.organizatudo.aab
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\bin\com.thaleslj.organizatudo.apks
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\src\com\thaleslj\organizatudo\R.java
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\assets\Newtonsoft.Json.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\assets\RestSharp.dll

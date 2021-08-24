@@ -4,7 +4,9 @@ public class MonoPackageManager_Resources {
 		/* We need to ensure that "OrganizaTudo.Android.dll" comes first in this list. */
 		"OrganizaTudo.Android.dll",
 		"FormsViewGroup.dll",
+		"Newtonsoft.Json.dll",
 		"OrganizaTudo.dll",
+		"RestSharp.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.Annotation.dll",
 		"Xamarin.AndroidX.Annotation.Experimental.dll",

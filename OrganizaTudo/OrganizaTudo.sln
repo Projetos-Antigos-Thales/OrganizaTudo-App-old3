@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaTudo.Android", "Org
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaTudo.iOS", "OrganizaTudo.iOS\OrganizaTudo.iOS.csproj", "{3ED5562A-EAEA-4A21-B411-73674ECC9294}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizaTudo", "OrganizaTudo\OrganizaTudo.csproj", "{43EA6B85-F575-4BC8-93DC-D53F32754398}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrganizaTudo", "OrganizaTudo\OrganizaTudo.csproj", "{43EA6B85-F575-4BC8-93DC-D53F32754398}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
