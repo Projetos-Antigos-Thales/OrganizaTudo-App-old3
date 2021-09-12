@@ -15,7 +15,7 @@ namespace OrganizaTudo.Controllers
             try
             {
                 Usuario usuario = new Usuario() { apelido = apelido, senha = senha };
-                return api.Login(usuario).Token;
+                return api.Login(usuario) == null ? null : api.Login(usuario).Token;
             }
             catch (Exception)
             {

@@ -24,13 +24,9 @@ namespace OrganizaTudo.Code
 
                 IRestResponse response = client.Execute<object>(request);
 
-                if (response.IsSuccessful)
+                if (response.IsSuccessful && !response.Content.Equals("\"404\"") && !response.Content.Equals("\"500\""))
                 {
-                    Sessao sessao = JsonConvert.DeserializeObject<Sessao>(response.Content, new JsonSerializerSettings
-                    {
-                        NullValueHandling = NullValueHandling.Ignore,
-                        MissingMemberHandling = MissingMemberHandling.Ignore
-                    });
+                    Sessao sessao = JsonConvert.DeserializeObject<Sessao>(response.Content);
                     return sessao;
                 }
                 return null;
@@ -51,7 +47,16 @@ namespace OrganizaTudo.Code
                 // client.Authenticator = new HttpBasicAuthenticator("Autentication", "Bearer password");
 
                 IRestResponse response = client.Execute<object>(request);
-                return response.IsSuccessful;
+                if (response.IsSuccessful)
+                {
+                    Sessao sessao = JsonConvert.DeserializeObject<Sessao>(response.Content, new JsonSerializerSettings
+                    {
+                        NullValueHandling = NullValueHandling.Ignore,
+                        MissingMemberHandling = MissingMemberHandling.Ignore
+                    });
+                    return true;
+                }
+                return false;
             }
             catch (Exception)
             {

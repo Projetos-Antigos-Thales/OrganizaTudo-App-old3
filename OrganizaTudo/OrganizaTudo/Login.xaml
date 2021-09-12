@@ -15,6 +15,8 @@
 
         <Button x:Name="btnCriarConta" Clicked="btnCriarConta_Clicked" TextColor="#35C0ED" FontSize="15" Margin="0,5,0,0" Text="CRIAR CONTA" BackgroundColor="Transparent"></Button>
 
+        <Label x:Name="lblErro" FontAttributes="Bold" FontSize="Medium" TextColor="#AA0000" HorizontalTextAlignment="Center" Margin="0,0,0,0"></Label>
+
     </StackLayout>
 
 </ContentPage>

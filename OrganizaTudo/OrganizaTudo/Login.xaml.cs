@@ -22,17 +22,30 @@ namespace OrganizaTudo
         {
             try
             {
-                if (UsuarioController.Login(txtApelido.Text, txtSenha.Text).Any())
+                if (String.IsNullOrEmpty(txtApelido.Text) || String.IsNullOrEmpty(txtSenha.Text))
                 {
-                    txtApelido.Text = "";
-                    txtSenha.Text = "";
+                    lblErro.Text = $"Preencha todos os campos!";
+                }
+                else
+                {
+                    if (String.IsNullOrEmpty(UsuarioController.Login(txtApelido.Text, txtSenha.Text)))
+                    {
+                        lblErro.Text = $"Conta não encontrada!"; 
+                    }
+                    else
+                    {
+                        lblErro.Text = "";
+                        txtApelido.Text = "";
+                        txtSenha.Text = "";
 
-                    await Navigation.PushAsync(new Home());
+                        await Navigation.PushAsync(new Home());
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro {ex.Message}");
+                lblErro.Text = $"Ocorreu um erro: {ex.Message}";
+                // Console.WriteLine($"Erro {ex.Message}");
             }
         }
 
