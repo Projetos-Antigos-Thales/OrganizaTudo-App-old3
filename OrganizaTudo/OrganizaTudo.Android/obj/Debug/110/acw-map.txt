@@ -1,3 +1,6 @@
+OrganizaTudo.Droid.SplashScreenActivity, OrganizaTudo.Android;crc648dfcda85636ae010.SplashScreenActivity
+OrganizaTudo.Droid.SplashScreenActivity;crc648dfcda85636ae010.SplashScreenActivity
+organizatudo.droid.SplashScreenActivity;crc648dfcda85636ae010.SplashScreenActivity
 OrganizaTudo.Droid.MainActivity, OrganizaTudo.Android;crc648dfcda85636ae010.MainActivity
 OrganizaTudo.Droid.MainActivity;crc648dfcda85636ae010.MainActivity
 organizatudo.droid.MainActivity;crc648dfcda85636ae010.MainActivity
