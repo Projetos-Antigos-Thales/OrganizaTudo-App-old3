@@ -28,16 +28,16 @@ namespace OrganizaTudo
                 }
                 else
                 {
-                    if (String.IsNullOrEmpty(UsuarioController.Login(txtApelido.Text, txtSenha.Text)))
+                    if (UsuarioController.Login(txtApelido.Text, txtSenha.Text) == null)
                     {
-                        lblErro.Text = $"Conta não encontrada!"; 
+                        lblErro.Text = $"Conta '{txtApelido.Text}' não encontrada!"; 
                     }
                     else
                     {
                         lblErro.Text = "";
                         txtApelido.Text = "";
                         txtSenha.Text = "";
-
+                        // Salvar Sessão
                         await Navigation.PushAsync(new Home());
                     }
                 }

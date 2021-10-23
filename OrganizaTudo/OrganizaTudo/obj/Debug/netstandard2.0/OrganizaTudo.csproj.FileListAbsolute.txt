@@ -1,8 +1,3 @@
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstandard2.0\OrganizaTudo.deps.json
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstandard2.0\OrganizaTudo.dll
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstandard2.0\ref\OrganizaTudo.dll
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstandard2.0\OrganizaTudo.pdb
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.csproj.AssemblyReference.cache
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\CadastroUsuario.xaml.g.cs
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\Home.xaml.g.cs
@@ -10,6 +5,10 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstand
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.AssemblyInfoInputs.cache
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.AssemblyInfo.cs
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.csproj.CoreCompileInputs.cache
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstandard2.0\OrganizaTudo.deps.json
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstandard2.0\OrganizaTudo.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstandard2.0\ref\OrganizaTudo.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstandard2.0\OrganizaTudo.pdb
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\XamlC.stamp
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\ref\OrganizaTudo.dll

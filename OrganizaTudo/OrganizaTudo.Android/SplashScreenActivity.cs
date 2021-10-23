@@ -10,7 +10,7 @@ using Android.Content;
 
 namespace OrganizaTudo.Droid
 {
-    [Activity(Theme = "@style/SplashScreenTheme", MainLauncher = true, NoHistory = true)]
+    [Activity(Label = "Organiza Tudo", Icon = "@mipmap/icon", Theme = "@style/SplashScreenTheme", MainLauncher = true, NoHistory = true)]
     public class SplashScreenActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
