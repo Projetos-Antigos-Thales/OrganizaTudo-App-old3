@@ -33,6 +33,7 @@ namespace OrganizaTudo
                     {
                         // Salvar Sessão
                         Sessao repository = (Sessao)BindingContext;
+                        login.manter = cBoxManterConexao.IsChecked;
                         await SessaoController.IniciarSessaoAsync(login);
 
                         await Navigation.PushAsync(new Home());

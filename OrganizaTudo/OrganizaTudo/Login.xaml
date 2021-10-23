@@ -13,6 +13,22 @@
 
         <Button x:Name="btnLogin" Clicked="btnLogin_Clicked" BorderRadius="10" FontSize="Medium" Text="ACESSAR" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED"></Button>
 
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <CheckBox x:Name="cBoxManterConexao" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" />
+            <Label Grid.Row="1" Grid.Column="2" Text="Login Automático" VerticalOptions="Center" />
+        </Grid>
+
         <Button x:Name="btnCriarConta" Clicked="btnCriarConta_Clicked" TextColor="#35C0ED" FontSize="15" Margin="0,5,0,0" Text="CRIAR CONTA" BackgroundColor="Transparent"></Button>
 
         <Label x:Name="lblErro" FontAttributes="Bold" FontSize="Medium" TextColor="#AA0000" HorizontalTextAlignment="Center" Margin="0,0,0,0"></Label>
