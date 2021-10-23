@@ -7,9 +7,9 @@
 
         <Label x:Name="lblTitulo" FontSize="35" HorizontalTextAlignment="Center" Margin="0,30,0,0">ORGANIZA TUDO</Label>
 
-        <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" Margin="40,20,40,0" />
+        <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" Margin="40,20,40,0" Text="Thales" />
 
-        <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" Margin="40,20,40,0" IsPassword="True" />
+        <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" Margin="40,20,40,0" IsPassword="True" Text="senha" />
 
         <Button x:Name="btnLogin" Clicked="btnLogin_Clicked" BorderRadius="10" FontSize="Medium" Text="ACESSAR" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED"></Button>
 

@@ -37,18 +37,34 @@ namespace OrganizaTudo.Controllers
             }
         }
 
-        public static string CriarConta(string apelido, string senha)
+        public static string CriarConta(string apelido, string email, string senha)
         {
             try
             {
-                Usuario usuario = new Usuario() { apelido = apelido, senha = senha };
+                Usuario usuario = new Usuario() { apelido = apelido, email = email, senha = senha };
                 RestClient client = new RestClient($"{baseURL}/criarConta");
                 RestRequest request = new RestRequest(Method.POST);
                 request.AddParameter("application/json; charset=utf-8", JsonConvert.SerializeObject(usuario), ParameterType.RequestBody);
                 // client.Authenticator = new HttpBasicAuthenticator("Autentication", "Bearer password");
 
                 IRestResponse response = client.Execute<object>(request);
-                return response.Content;
+                string status = response.Content.Replace("\"","");
+
+                switch (status)
+                {
+                    case "400.1":
+                        return "Apelido em uso!";
+                        break;
+                    case "400.2":
+                        return "Email em uso!";
+                        break;
+                    case "500":
+                        return "Ocorreu um erro, tente novamente mais tarde...";
+                        break;
+                    default:
+                        return null;
+                        break;
+                }
             }
             catch (Exception)
             {

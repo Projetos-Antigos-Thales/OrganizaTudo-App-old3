@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using OrganizaTudo.Controllers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,10 +15,30 @@ namespace OrganizaTudo
 
         private async void btnCriarConta_Clicked(object sender, EventArgs e)
         {
-            txtApelido.Text = "";
-            txtEmail.Text = "";
-            txtSenha.Text = "";
-            await Navigation.PopAsync();
+            try
+            {
+                if (string.IsNullOrEmpty(txtApelido.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtSenha.Text))
+                {
+                    lblErro.Text = $"Preencha todos os campos!";
+                }
+                else
+                {
+                    lblErro.Text = UsuarioController.CriarConta(txtApelido.Text, txtEmail.Text, txtSenha.Text);
+
+                    if (lblErro.Text == null)
+                    {
+                        await Navigation.PopAsync();
+                        txtApelido.Text = "";
+                        txtEmail.Text = "";
+                        txtSenha.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblErro.Text = $"{ex.Message}";
+            }
+
         }
     }
 }

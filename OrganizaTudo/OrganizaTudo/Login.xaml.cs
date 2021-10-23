@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using OrganizaTudo.Controllers;
-
+using OrganizaTudo.Models;
 
 namespace OrganizaTudo
 {
@@ -28,24 +24,27 @@ namespace OrganizaTudo
                 }
                 else
                 {
-                    if (UsuarioController.Login(txtApelido.Text, txtSenha.Text) == null)
+                    Sessao login = UsuarioController.Login(txtApelido.Text, txtSenha.Text);
+                    if (login == null)
                     {
-                        lblErro.Text = $"Conta '{txtApelido.Text}' não encontrada!"; 
+                        lblErro.Text = $"Conta \"{txtApelido.Text}\" não encontrada!";
                     }
                     else
                     {
+                        // Salvar Sessão
+                        Sessao repository = (Sessao)BindingContext;
+                        await SessaoController.IniciarSessaoAsync(login);
+
+                        await Navigation.PushAsync(new Home());
                         lblErro.Text = "";
                         txtApelido.Text = "";
                         txtSenha.Text = "";
-                        // Salvar Sessão
-                        await Navigation.PushAsync(new Home());
                     }
                 }
             }
             catch (Exception ex)
             {
                 lblErro.Text = $"Ocorreu um erro: {ex.Message}";
-                // Console.WriteLine($"Erro {ex.Message}");
             }
         }
 

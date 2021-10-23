@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +10,7 @@ namespace OrganizaTudo
         public Home()
         {
             InitializeComponent();
+            // btnSair.Text = SessaoController.BuscarSessaoAsync().Result.apelido;
         }
         protected override bool OnBackButtonPressed()
         {
