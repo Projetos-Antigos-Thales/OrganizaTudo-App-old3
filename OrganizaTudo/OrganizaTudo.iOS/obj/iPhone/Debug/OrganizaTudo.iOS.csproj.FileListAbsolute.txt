@@ -2,6 +2,14 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Deb
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\OrganizaTudo.iOS.pdb
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\Newtonsoft.Json.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\RestSharp.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\SQLite-net.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\SQLitePCLRaw.batteries_v2.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\SQLitePCLRaw.nativelibrary.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\SQLitePCLRaw.core.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\SQLitePCLRaw.provider.dynamic_cdecl.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\System.Buffers.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\System.Memory.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\Xamarin.Essentials.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\Xamarin.Essentials.pdb
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.dll

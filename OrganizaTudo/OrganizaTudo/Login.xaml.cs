@@ -11,37 +11,30 @@ namespace OrganizaTudo
     {
         public Login()
         {
+            ValidarSessao();
             InitializeComponent();
         }
 
-        private async void btnLogin_Clicked(object sender, EventArgs e)
+        public async void ValidarSessao()
         {
             try
             {
-                if (String.IsNullOrEmpty(txtApelido.Text) || String.IsNullOrEmpty(txtSenha.Text))
-                {
-                    lblErro.Text = $"Preencha todos os campos!";
+                Sessao usuario = await SessaoController.BuscarSessaoAsync();
+                if (usuario != null){
+                    EfetuarLogin(usuario.apelido, usuario.senha, usuario.manter);
                 }
-                else
-                {
-                    Sessao login = UsuarioController.Login(txtApelido.Text, txtSenha.Text);
-                    if (login == null)
-                    {
-                        lblErro.Text = $"Conta \"{txtApelido.Text}\" não encontrada!";
-                    }
-                    else
-                    {
-                        // Salvar Sessão
-                        Sessao repository = (Sessao)BindingContext;
-                        login.manter = cBoxManterConexao.IsChecked;
-                        await SessaoController.IniciarSessaoAsync(login);
+            }
+            catch (Exception ex)
+            {
+                lblErro.Text = $"Ocorreu um erro ao efetuar o Login Automático: {ex.Message}";
+            }
+        }
 
-                        await Navigation.PushAsync(new Home());
-                        lblErro.Text = "";
-                        txtApelido.Text = "";
-                        txtSenha.Text = "";
-                    }
-                }
+        private void btnLogin_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                EfetuarLogin(txtApelido.Text, txtSenha.Text, cBoxManterConexao.IsChecked);
             }
             catch (Exception ex)
             {
@@ -52,6 +45,41 @@ namespace OrganizaTudo
         private async void btnCriarConta_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CadastroUsuario());
+        }
+
+        private async void EfetuarLogin(string apelido, string senha, bool manter)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(apelido) || String.IsNullOrEmpty(senha))
+                {
+                    lblErro.Text = $"Preencha todos os campos!";
+                }
+                else
+                {
+                    Sessao login = UsuarioController.Login(apelido, senha);
+                    if (login == null)
+                    {
+                        lblErro.Text = $"Conta \"{apelido}\" não encontrada!";
+                    }
+                    else
+                    {
+                        // Salvar Sessão
+                        Sessao repository = (Sessao)BindingContext;
+                        login.manter = manter;
+                        await SessaoController.IniciarSessaoAsync(login);
+
+                        await Navigation.PushAsync(new Home());
+                        lblErro.Text = "";
+                        txtApelido.Text = "";
+                        txtSenha.Text = "";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

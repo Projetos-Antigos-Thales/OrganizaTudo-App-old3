@@ -7,9 +7,9 @@
 
         <Label x:Name="lblTitulo" FontSize="35" HorizontalTextAlignment="Center" Margin="0,30,0,0">ORGANIZA TUDO</Label>
 
-        <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" Margin="40,20,40,0" Text="Thales" />
+        <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" Margin="40,20,40,0" />
 
-        <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" Margin="40,20,40,0" IsPassword="True" Text="senha" />
+        <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" Margin="40,20,40,0" IsPassword="True" />
 
         <Button x:Name="btnLogin" Clicked="btnLogin_Clicked" BorderRadius="10" FontSize="Medium" Text="ACESSAR" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED"></Button>
 
@@ -25,14 +25,16 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <CheckBox x:Name="cBoxManterConexao" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" />
-            <Label Grid.Row="1" Grid.Column="2" Text="Login Automático" VerticalOptions="Center" />
+            <CheckBox x:Name="cBoxManterConexao" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" IsChecked="True" />
+            <Label Grid.Row="1" Grid.Column="2" Text="Manter Conectado" VerticalOptions="Center" />
         </Grid>
 
         <Button x:Name="btnCriarConta" Clicked="btnCriarConta_Clicked" TextColor="#35C0ED" FontSize="15" Margin="0,5,0,0" Text="CRIAR CONTA" BackgroundColor="Transparent"></Button>
 
         <Label x:Name="lblErro" FontAttributes="Bold" FontSize="Medium" TextColor="#AA0000" HorizontalTextAlignment="Center" Margin="0,0,0,0"></Label>
 
+        <Button x:Name="btnOrganizacaoOffline" TextColor="#35C0ED" FontSize="20" Margin="0,0,0,30" Text="ORGANIZAÇÃO OFFLINE" BackgroundColor="Transparent" VerticalOptions="EndAndExpand"></Button>
+        
     </StackLayout>
 
 </ContentPage>

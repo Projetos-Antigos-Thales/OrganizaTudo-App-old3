@@ -27,6 +27,7 @@ namespace OrganizaTudo.Controllers
                 if (response.IsSuccessful && !response.Content.Equals("\"404\"") && !response.Content.Equals("\"500\""))
                 {
                     Sessao sessao = JsonConvert.DeserializeObject<Sessao>(response.Content);
+                    sessao.senha = senha;
                     return sessao;
                 }
                 return null;
