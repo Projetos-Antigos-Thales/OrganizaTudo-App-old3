@@ -595,4 +595,4 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\android\assets\MongoDB.Bson.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.Android\obj\Debug\110\res\drawable\ic_add_circle.png

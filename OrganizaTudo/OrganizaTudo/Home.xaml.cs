@@ -34,15 +34,28 @@ namespace OrganizaTudo
             }
 
             lv.ItemsSource = notas;
-            lv.ItemTemplate = new DataTemplate(typeof(TextCell));
-            lv.ItemTemplate.SetBinding(TextCell.TextProperty, "titulo");
-            //lv.ItemTemplate.SetBinding(TextCell.DetailProperty, "nota");
+            lv.ItemTemplate = new DataTemplate(typeof(ListNotas));
+            lv.ItemTemplate.SetBinding(ListNotas.TituloProperty, "titulo");
+            lv.ItemTemplate.SetBinding(ListNotas.PublicaProperty, "publica");
+            lv.HasUnevenRows = true;
 
             lv.ItemTapped += (e, s) =>
             {
-                DisplayAlert((s.Item as Nota).titulo, "Deseja excluir essa nota?", "Sim");
+                DisplayAlert((s.Item as Nota).id.Oid, "", "OK");
+                lv.SelectedItem = null;
             };
+        }
 
+        void OnImageNameTapped(object sender, EventArgs args)
+        {
+            try
+            {
+                Navigation.PushAsync(new CriarNota());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected override bool OnBackButtonPressed()

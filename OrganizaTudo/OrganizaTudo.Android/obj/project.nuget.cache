@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "vt4ZOE4lhehgUjsWS7B6YAkc6Co1di1KVoeEE5hshaf/aN3Dcqk8uBIPB23gj1clZF5fmh4LnNlSmrCo+D7O3g==",
+  "dgSpecHash": "AKvZbWYEGbMpbl62lMz7gHJR1TWgPTnxg6y7aqbbZA6YMkDshcrGcMcX2D/z6AblcErD42anTwI4pgCNj3Qedg==",
   "success": true,
   "projectFilePath": "D:\\Projetos\\dotnet\\App.OrganizaTudo\\OrganizaTudo\\OrganizaTudo.Android\\OrganizaTudo.Android.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\thale\\.nuget\\packages\\mongodb.bson\\2.14.1\\mongodb.bson.2.14.1.nupkg.sha512",
     "C:\\Users\\thale\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\thale\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512",
     "C:\\Users\\thale\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
@@ -15,7 +14,7 @@
     "C:\\Users\\thale\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\thale\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\thale\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\thale\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\thale\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.1.0.5\\xamarin.androidx.activity.1.1.0.5.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation\\1.1.0.8\\xamarin.androidx.annotation.1.1.0.8.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation.experimental\\1.0.0.8\\xamarin.androidx.annotation.experimental.1.0.0.8.nupkg.sha512",

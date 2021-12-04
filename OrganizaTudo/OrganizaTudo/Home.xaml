@@ -3,10 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OrganizaTudo.Home" NavigationPage.HasNavigationBar="False">
 
-    <ContentPage Title="Notas" >
+    <ContentPage Title="Notas" HeightRequest="-1" >
+        <StackLayout>
+            <SearchBar x:Name="txtSearch" Placeholder="Busca por Título" FontSize="21" Margin="0,10,40,10" CancelButtonColor="Red" />
 
-        <ListView x:Name="lv"></ListView>
+            <ListView x:Name="lv" ></ListView>
 
+            <Image x:Name="imgAdd" Source="ic_add_circle.png" HorizontalOptions="End" Margin="0,8,12,12" HeightRequest="55">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnImageNameTapped" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
     </ContentPage>
 
     <ContentPage Title="Perfil">
