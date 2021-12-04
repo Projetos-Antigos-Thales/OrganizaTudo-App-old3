@@ -5,6 +5,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using OrganizaTudo.Models;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace OrganizaTudo.Controllers
 {
@@ -12,7 +13,7 @@ namespace OrganizaTudo.Controllers
     {
         public static readonly string baseURL = "https://webhooks.mongodb-realm.com/api/client/v2.0/app/organiza-tudo-luhho/service/API/incoming_webhook";
 
-        public static Sessao Login(string apelido, string senha)
+        public async static Task<Sessao> Login(string apelido, string senha)
         {
             try
             {

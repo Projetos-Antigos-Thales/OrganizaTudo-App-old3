@@ -11,7 +11,10 @@
 
         <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" Margin="40,20,40,0" IsPassword="True" />
 
-        <Button x:Name="btnLogin" Clicked="btnLogin_Clicked" BorderRadius="10" FontSize="Medium" Text="ACESSAR" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED"></Button>
+        <Grid>
+            <Button x:Name="btnLogin" Clicked="btnLogin_Clicked" BorderRadius="10" FontSize="Medium" Text="ACESSAR" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED"></Button>
+            <ActivityIndicator x:Name="actInd" IsRunning="False" HorizontalOptions="Center" Color="White" Margin="40,25,40,0" />
+        </Grid>
 
         <Grid>
             <Grid.RowDefinitions>

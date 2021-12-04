@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using OrganizaTudo.Controllers;
 using OrganizaTudo.Models;
+using System.Threading.Tasks;
 
 namespace OrganizaTudo
 {
@@ -20,7 +21,9 @@ namespace OrganizaTudo
             try
             {
                 Sessao usuario = await SessaoController.BuscarSessaoAsync();
-                if (usuario != null){
+                if (usuario != null)
+                {
+                    await Task.Delay(1000);
                     EfetuarLogin(usuario.apelido, usuario.senha, usuario.manter);
                 }
             }
@@ -51,16 +54,20 @@ namespace OrganizaTudo
         {
             try
             {
+                IniciarLoad();
+                await Task.Delay(1000);
                 if (String.IsNullOrEmpty(apelido) || String.IsNullOrEmpty(senha))
                 {
                     lblErro.Text = $"Preencha todos os campos!";
+                    FinalizarLoad();
                 }
                 else
                 {
-                    Sessao login = UsuarioController.Login(apelido, senha);
+                    Sessao login = await UsuarioController.Login(apelido, senha);
                     if (login == null)
                     {
                         lblErro.Text = $"Conta \"{apelido}\" não encontrada!";
+                        FinalizarLoad();
                     }
                     else
                     {
@@ -73,13 +80,31 @@ namespace OrganizaTudo
                         lblErro.Text = "";
                         txtApelido.Text = "";
                         txtSenha.Text = "";
+                        FinalizarLoad();
                     }
                 }
             }
             catch (Exception)
             {
+                FinalizarLoad();
                 throw;
             }
         }
+
+        public void IniciarLoad()
+        {
+            btnLogin.Text = "";
+            btnLogin.IsEnabled = false;
+            actInd.IsRunning = true;
+        }
+
+        public void FinalizarLoad()
+        {
+            btnLogin.Text = "ACESSAR";
+            btnLogin.IsEnabled = true;
+            actInd.IsRunning = false;
+
+        }
+
     }
 }
