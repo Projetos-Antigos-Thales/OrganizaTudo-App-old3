@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using OrganizaTudo.Controllers;
 using OrganizaTudo.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace OrganizaTudo
 {
@@ -33,17 +34,32 @@ namespace OrganizaTudo
                 Console.WriteLine(nota.titulo + "\n");
             }
 
+            // Revertendo a ordem da lista, devido comportamento da API
+            notas.Reverse();
+
             lv.ItemsSource = notas;
             lv.ItemTemplate = new DataTemplate(typeof(ListNotas));
             lv.ItemTemplate.SetBinding(ListNotas.TituloProperty, "titulo");
             lv.ItemTemplate.SetBinding(ListNotas.PublicaProperty, "publica");
             lv.HasUnevenRows = true;
+            lv.IsPullToRefreshEnabled = true;
+            lv.Refreshing += Lv_Refreshing;
+            lv.RefreshControlColor = Color.FromHex("#35C0ED");
+            lv.VerticalScrollBarVisibility = ScrollBarVisibility.Always;
+
 
             lv.ItemTapped += (e, s) =>
             {
                 DisplayAlert((s.Item as Nota).id.Oid, "", "OK");
                 lv.SelectedItem = null;
             };
+        }
+
+        private async void Lv_Refreshing(object sender, EventArgs e)
+        {
+            await Task.Delay(500);
+            CarregarNotas();
+            lv.IsRefreshing = false;
         }
 
         void OnImageNameTapped(object sender, EventArgs args)
