@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "MonoAndroid,Version=v11.0": {
+      "MongoDB.Bson/2.14.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/MongoDB.Bson.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MongoDB.Bson.dll": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -113,10 +125,10 @@
           "lib/MonoAndroid10/_._": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
@@ -1086,6 +1098,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "MongoDB.Bson": "2.14.1",
           "Newtonsoft.Json": "13.0.1",
           "RestSharp": "106.12.0",
           "Xamarin.Essentials": "1.6.1",
@@ -1102,6 +1115,25 @@
     }
   },
   "libraries": {
+    "MongoDB.Bson/2.14.1": {
+      "sha512": "+5LZSrOiQgubSyIfwdofiAiX1KM5m0mpZ55/o9yzJyZr9TviMbVbaxWjaHaQP4pv46fKA2LWSuuQD4SEj2tg0Q==",
+      "type": "package",
+      "path": "mongodb.bson/2.14.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "lib/net472/MongoDB.Bson.dll",
+        "lib/net472/MongoDB.Bson.xml",
+        "lib/netstandard2.0/MongoDB.Bson.dll",
+        "lib/netstandard2.0/MongoDB.Bson.xml",
+        "lib/netstandard2.1/MongoDB.Bson.dll",
+        "lib/netstandard2.1/MongoDB.Bson.xml",
+        "mongodb.bson.2.14.1.nupkg.sha512",
+        "mongodb.bson.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "Newtonsoft.Json/13.0.1": {
       "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
@@ -1308,26 +1340,33 @@
         "version.txt"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
-      "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "sha512": "ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "path": "system.runtime.compilerservices.unsafe/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net45/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net45/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/net461/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"

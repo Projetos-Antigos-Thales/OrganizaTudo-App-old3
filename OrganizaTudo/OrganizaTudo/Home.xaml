@@ -2,8 +2,12 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OrganizaTudo.Home" NavigationPage.HasNavigationBar="False">
-    
-    <ContentPage Title="Notas" />
+
+    <ContentPage Title="Notas" >
+
+        <ListView x:Name="lv"></ListView>
+
+    </ContentPage>
 
     <ContentPage Title="Perfil">
         <StackLayout>

@@ -3,22 +3,46 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using OrganizaTudo.Controllers;
 using OrganizaTudo.Models;
+using System.Collections.Generic;
 
 namespace OrganizaTudo
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : TabbedPage
     {
+        private Sessao usuario;
         public Home()
         {
-            CarregarDadosSessao();
             InitializeComponent();
+            CarregarDadosSessao();
         }
 
         public async void CarregarDadosSessao()
         {
-            Sessao usuario = await SessaoController.BuscarSessaoAsync();
+            usuario = await SessaoController.BuscarSessaoAsync();
             btnSair.Text = $"Sair - {usuario.apelido}";
+            CarregarNotas();
+        }
+
+        public async void CarregarNotas()
+        {
+            NotasController notasController = new NotasController();
+            List<Nota> notas = await notasController.BuscarNotas(usuario.token);
+            foreach (Nota nota in notas)
+            {
+                Console.WriteLine(nota.titulo + "\n");
+            }
+
+            lv.ItemsSource = notas;
+            lv.ItemTemplate = new DataTemplate(typeof(TextCell));
+            lv.ItemTemplate.SetBinding(TextCell.TextProperty, "titulo");
+            //lv.ItemTemplate.SetBinding(TextCell.DetailProperty, "nota");
+
+            lv.ItemTapped += (e, s) =>
+            {
+                DisplayAlert((s.Item as Nota).titulo, "Deseja excluir essa nota?", "Sim");
+            };
+
         }
 
         protected override bool OnBackButtonPressed()
