@@ -45,13 +45,12 @@ namespace OrganizaTudo
             lv.IsPullToRefreshEnabled = true;
             lv.Refreshing += Lv_Refreshing;
             lv.RefreshControlColor = Color.FromHex("#35C0ED");
-            lv.VerticalScrollBarVisibility = ScrollBarVisibility.Always;
 
 
-            lv.ItemTapped += (e, s) =>
+            lv.ItemTapped += async (e, s) =>
             {
-                DisplayAlert((s.Item as Nota).id.Oid, "", "OK");
                 lv.SelectedItem = null;
+                await Navigation.PushAsync(new EditarNota(s.Item as Nota));
             };
         }
 
@@ -66,7 +65,7 @@ namespace OrganizaTudo
         {
             try
             {
-                Navigation.PushAsync(new CriarNota());
+                Navigation.PushAsync(new CadastrarNota());
             }
             catch (Exception ex)
             {

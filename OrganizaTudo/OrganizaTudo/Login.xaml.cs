@@ -47,7 +47,7 @@ namespace OrganizaTudo
 
         private async void btnCriarConta_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CadastroUsuario());
+            await Navigation.PushAsync(new CadastrarUsuario());
         }
 
         private async void EfetuarLogin(string apelido, string senha, bool manter)

@@ -3,7 +3,9 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstand
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstandard2.0\ref\OrganizaTudo.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\bin\Debug\netstandard2.0\OrganizaTudo.pdb
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\App.xaml.g.cs
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\CadastroUsuario.xaml.g.cs
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\CadastrarNota.xaml.g.cs
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\CadastrarUsuario.xaml.g.cs
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\EditarNota.xaml.g.cs
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\Home.xaml.g.cs
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\Login.xaml.g.cs
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.AssemblyInfoInputs.cache
@@ -13,5 +15,3 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstand
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\ref\OrganizaTudo.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.pdb
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.csproj.AssemblyReference.cache
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\CriarNota.xaml.g.cs

@@ -19,22 +19,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="CadastroUsuario.xaml.cs">
-      <DependentUpon>CadastroUsuario.xaml</DependentUpon>
+    <Compile Update="CadastrarUsuario.xaml.cs">
+      <DependentUpon>CadastrarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="EditarNota.xaml.cs">
+      <DependentUpon>EditarNota.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="CadastroUsuario.xaml">
+    <EmbeddedResource Update="CadastrarNota.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CriarNota.xaml">
+    <EmbeddedResource Update="CadastrarUsuario.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Home.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Login.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EditarNota.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
