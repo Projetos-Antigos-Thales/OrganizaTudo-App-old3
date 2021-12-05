@@ -22,6 +22,7 @@ namespace OrganizaTudo
             txtTitulo.Text = nota.titulo;
             txtNota.Text = nota.nota;
         }
+        
         private async void btnSalvar_Clicked(object sender, EventArgs e)
         {
             try
@@ -33,6 +34,7 @@ namespace OrganizaTudo
                 DisplayAlert("Ocorreu um erro:", ex.Message, "voltar");
             }
         }
+        
         private async void btnExcluir_Clicked(object sender, EventArgs e)
         {
             try

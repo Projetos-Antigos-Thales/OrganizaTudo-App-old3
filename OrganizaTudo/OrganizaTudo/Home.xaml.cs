@@ -12,6 +12,7 @@ namespace OrganizaTudo
     public partial class Home : TabbedPage
     {
         private Sessao usuario;
+
         public Home()
         {
             InitializeComponent();
