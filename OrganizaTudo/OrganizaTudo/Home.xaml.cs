@@ -19,6 +19,11 @@ namespace OrganizaTudo
             CarregarDadosSessao();
         }
 
+        protected virtual void OnResume()
+        {
+            CarregarNotas();
+        }
+
         public async void CarregarDadosSessao()
         {
             usuario = await SessaoController.BuscarSessaoAsync();
@@ -84,5 +89,6 @@ namespace OrganizaTudo
             SessaoController.FinalizarSessaoAsync();
             await Navigation.PopAsync();
         }
+
     }
 }

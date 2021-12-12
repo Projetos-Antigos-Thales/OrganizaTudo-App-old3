@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using OrganizaTudo.Models;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace OrganizaTudo.Controllers
 {
@@ -47,9 +48,7 @@ namespace OrganizaTudo.Controllers
                 RestClient client = new RestClient($"{baseURL}/inserirNota");
                 RestRequest request = new RestRequest(Method.POST);
                 request.AddHeader("Authorization", Token);
-
-                nota objNota = new nota { titulo = nota.titulo , conteudo = nota.nota };
-                request.AddParameter("application/json; charset=utf-8", "nota: " + JsonConvert.SerializeObject(objNota), ParameterType.RequestBody);
+                request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ nota: { \"titulo\": \"" + nota.titulo + "\" , \"nota\": \"" + nota.nota + "\" } }"), ParameterType.RequestBody);
 
                 IRestResponse response = client.Execute<object>(request);
 
@@ -62,6 +61,25 @@ namespace OrganizaTudo.Controllers
             }
         }
 
+        public bool EditarNota(string Token, Nota nota, string notaID)
+        {
+            try
+            {
+                RestClient client = new RestClient($"{baseURL}/editarNota");
+                RestRequest request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", Token);
+                request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ notaID: \"" + notaID + "\" , notaNova: { \"titulo\": \"" + nota.titulo + "\" , \"nota\": \"" + nota.nota + "\" } }"), ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute<object>(request);
+
+                if (response.IsSuccessful && response.Content.Equals("200")) return true;
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         // Pesquisar Nota por ID
         // Pesquisar Notas por Título
@@ -70,22 +88,6 @@ namespace OrganizaTudo.Controllers
         // Atualizar Privacidade da Nota
         // Deletar Nota
 
-    }
-    
-    public partial class nota
-    {
-        public string titulo { get; set; }
-
-        [JsonProperty("nota")]
-        public string conteudo { get; set; }
-    }
-
-    public partial class novaNota
-    {
-        public string titulo { get; set; }
-
-        [JsonProperty("nota")]
-        public string conteudo { get; set; }
     }
 
 }
