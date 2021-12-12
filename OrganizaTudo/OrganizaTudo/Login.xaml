@@ -28,7 +28,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <CheckBox x:Name="cBoxManterConexao" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" IsChecked="True" />
+            <CheckBox x:Name="cBoxManterConexao" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" IsChecked="False" />
             <Label Grid.Row="1" Grid.Column="2" Text="Manter Conectado" VerticalOptions="Center" />
         </Grid>
 

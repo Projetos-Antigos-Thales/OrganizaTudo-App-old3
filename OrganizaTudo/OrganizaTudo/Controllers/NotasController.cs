@@ -40,7 +40,29 @@ namespace OrganizaTudo.Controllers
             }
         }
 
-        // Inserir Nota
+        public bool InserirNota(string Token, Nota nota)
+        {
+            try
+            {
+                RestClient client = new RestClient($"{baseURL}/inserirNota");
+                RestRequest request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", Token);
+
+                nota objNota = new nota { titulo = nota.titulo , conteudo = nota.nota };
+                request.AddParameter("application/json; charset=utf-8", "nota: " + JsonConvert.SerializeObject(objNota), ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute<object>(request);
+
+                if (response.IsSuccessful && response.Content.Equals("200")) return true;
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
         // Pesquisar Nota por ID
         // Pesquisar Notas por Título
         // Buscar Notas
@@ -49,4 +71,21 @@ namespace OrganizaTudo.Controllers
         // Deletar Nota
 
     }
+    
+    public partial class nota
+    {
+        public string titulo { get; set; }
+
+        [JsonProperty("nota")]
+        public string conteudo { get; set; }
+    }
+
+    public partial class novaNota
+    {
+        public string titulo { get; set; }
+
+        [JsonProperty("nota")]
+        public string conteudo { get; set; }
+    }
+
 }

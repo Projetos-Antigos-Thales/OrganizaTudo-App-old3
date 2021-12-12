@@ -37,6 +37,7 @@ namespace OrganizaTudo
         {
             try
             {
+                lblErro.Text = "";
                 EfetuarLogin(txtApelido.Text, txtSenha.Text, cBoxManterConexao.IsChecked);
             }
             catch (Exception ex)
