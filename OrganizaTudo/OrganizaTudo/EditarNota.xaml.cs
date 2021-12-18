@@ -33,7 +33,16 @@ namespace OrganizaTudo
         {
             try
             {
-                await Navigation.PopAsync();
+                NotasController notasController = new NotasController();
+
+                if (notasController.EditarNota(usuario.token, new Nota { titulo = txtTitulo.Text , nota = txtNota.Text }, nota.id.Oid))
+                {
+                    await Navigation.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Ocorreu um erro", "Tente novamente", "voltar");
+                }
             }
             catch (Exception ex)
             {

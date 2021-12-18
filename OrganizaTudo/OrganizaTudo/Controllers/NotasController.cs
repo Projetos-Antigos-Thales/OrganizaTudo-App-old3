@@ -72,7 +72,7 @@ namespace OrganizaTudo.Controllers
 
                 IRestResponse response = client.Execute<object>(request);
 
-                if (response.IsSuccessful && response.Content.Equals("200")) return true;
+                if (response.IsSuccessful && response.Content.Equals("\"200\"")) return true;
                 return false;
             }
             catch (Exception)
