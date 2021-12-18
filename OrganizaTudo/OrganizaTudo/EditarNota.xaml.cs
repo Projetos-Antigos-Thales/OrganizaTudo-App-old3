@@ -31,7 +31,7 @@ namespace OrganizaTudo
             }
             catch (Exception ex)
             {
-                DisplayAlert("Ocorreu um erro:", ex.Message, "voltar");
+                await DisplayAlert("Ocorreu um erro:", ex.Message, "voltar");
             }
         }
         
@@ -43,7 +43,7 @@ namespace OrganizaTudo
             }
             catch (Exception ex)
             {
-                DisplayAlert("Ocorreu um erro:", ex.Message, "voltar");
+                await DisplayAlert("Ocorreu um erro:", ex.Message, "voltar");
             }
         }
     }

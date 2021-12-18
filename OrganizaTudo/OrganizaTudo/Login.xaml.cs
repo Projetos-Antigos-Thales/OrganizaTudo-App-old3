@@ -107,5 +107,11 @@ namespace OrganizaTudo
 
         }
 
+        public void Credenciais_Inseridas(object sender, EventArgs e)
+        {
+            lblErro.Text = "";
+            EfetuarLogin(txtApelido.Text, txtSenha.Text, cBoxManterConexao.IsChecked);
+        }
+
     }
 }
