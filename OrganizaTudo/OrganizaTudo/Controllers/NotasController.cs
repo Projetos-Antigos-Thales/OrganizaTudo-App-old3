@@ -81,12 +81,31 @@ namespace OrganizaTudo.Controllers
             }
         }
 
+        public bool DeletarNota(string Token, string notaID)
+        {
+            try
+            {
+                RestClient client = new RestClient($"{baseURL}/deletarNota");
+                RestRequest request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", Token);
+                request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ notaID: \"" + notaID + "\" }"), ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute<object>(request);
+
+                if (response.IsSuccessful && response.Content.Equals("\"200\"")) return true;
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         // Pesquisar Nota por ID
         // Pesquisar Notas por Título
         // Buscar Notas
         // Editar Nota
         // Atualizar Privacidade da Nota
-        // Deletar Nota
 
     }
 

@@ -5,7 +5,7 @@
 
     <ContentPage Title="Notas" HeightRequest="-1" >
         <StackLayout>
-            <SearchBar x:Name="txtSearch" Placeholder="Busca por Título" FontSize="21" Margin="0,5,0,0" BackgroundColor="Transparent" CancelButtonColor="Red" />
+            <Entry x:Name="txtSearch" FontSize="Title" Margin="30,10,30,5" HorizontalTextAlignment="Center" Placeholder="Busca por Título" ClearButtonVisibility="WhileEditing" />
 
             <ListView x:Name="lv" Margin="0,0,0,0"></ListView>
 

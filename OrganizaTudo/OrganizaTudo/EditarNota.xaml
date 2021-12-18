@@ -5,8 +5,8 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="txtTitulo" Placeholder="Titulo da Nota" FontSize="Large" Margin="20,20,20,0" ReturnType="Next" />
-            <Editor x:Name="txtNota" Placeholder="Nota" FontSize="Medium" Margin="20,20,20,0" HeightRequest="500" />
+            <Entry x:Name="txtTitulo" Placeholder="Titulo da Nota" FontSize="Large" Margin="20,20,20,0" ReturnType="Next" TextChanged="Titulo_Changed" />
+            <Editor x:Name="txtNota" Placeholder="Nota" FontSize="Medium" Margin="20,20,20,0" HeightRequest="500" TextChanged="Nota_Changed" />
             <Button x:Name="btnSalvar" Clicked="btnSalvar_Clicked" FontSize="Medium" Text="SALVAR" Margin="20,0,20,0" TextColor="#FFFFFF" BackgroundColor="Gray"></Button>
             <Button x:Name="btnExcluir" Clicked="btnExcluir_Clicked" FontSize="Medium" Text="EXCLUIR" Margin="20,0,20,0" TextColor="#FFFFFF" BackgroundColor="DarkRed"></Button>
         </StackLayout>
