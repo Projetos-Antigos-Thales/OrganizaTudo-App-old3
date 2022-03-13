@@ -150,9 +150,9 @@ namespace OrganizaTudo
                     CrossToastPopUp.Current.ShowToastError("Oorreu um erro, por favor tente novamente");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
+                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro:");
             }
 
         }

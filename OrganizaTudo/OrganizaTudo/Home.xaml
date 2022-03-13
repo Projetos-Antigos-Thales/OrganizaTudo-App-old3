@@ -19,7 +19,7 @@
                                 <!--Checkbox-->
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="End" >
                                     <Label Text="Nota Publica" VerticalOptions="Center" HorizontalTextAlignment="End" />
-                                    <CheckBox IsChecked="{Binding publica}" x:Name="cbxPublicidade"></CheckBox>
+                                    <CheckBox IsChecked="{Binding publica}" x:Name="cbxPublicidade" IsEnabled="False"></CheckBox>
                                 </StackLayout>
                                 
                             </StackLayout>

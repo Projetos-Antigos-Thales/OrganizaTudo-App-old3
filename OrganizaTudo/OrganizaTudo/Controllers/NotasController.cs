@@ -18,8 +18,8 @@ namespace OrganizaTudo.Controllers
         {
             try
             {
-                RestClient client = new RestClient($"{baseURL}/buscarNotas");
-                RestRequest request = new RestRequest(Method.POST);
+                RestClient client = new RestClient(baseURL);
+                RestRequest request = new RestRequest("buscarNotas", Method.POST);
                 request.AddHeader("Authorization", Token);
                 //request.AddParameter("Authorization", Token, ParameterType.HttpHeader);
 
@@ -45,10 +45,10 @@ namespace OrganizaTudo.Controllers
         {
             try
             {
-                RestClient client = new RestClient($"{baseURL}/buscarNotas");
-                RestRequest request = new RestRequest(Method.POST);
+                RestClient client = new RestClient(baseURL);
+                RestRequest request = new RestRequest("buscarNotas", Method.POST);
+                
                 request.AddHeader("Authorization", Token);
-                //request.AddParameter("Authorization", Token, ParameterType.HttpHeader);
 
                 IRestResponse response = client.Execute<object>(request);
                 if (response.IsSuccessful)
@@ -72,10 +72,12 @@ namespace OrganizaTudo.Controllers
         {
             try
             {
-                RestClient client = new RestClient($"{baseURL}/inserirNota");
-                RestRequest request = new RestRequest(Method.POST);
+                RestClient client = new RestClient(baseURL);
+                RestRequest request = new RestRequest("inserirNota", Method.POST);
+
+                request.AddJsonBody(new { nota = nota });
                 request.AddHeader("Authorization", Token);
-                request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ nota: { \"titulo\": \"" + nota.titulo + "\" , \"nota\": \"" + nota.nota + "\" } }"), ParameterType.RequestBody);
+                // request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ nota: { \"titulo\": \"" + nota.titulo + "\" , \"nota\": \"" + nota.nota + "\" } }"), ParameterType.RequestBody);
 
                 IRestResponse response = client.Execute<object>(request);
 
@@ -92,10 +94,11 @@ namespace OrganizaTudo.Controllers
         {
             try
             {
-                RestClient client = new RestClient($"{baseURL}/editarNota");
-                RestRequest request = new RestRequest(Method.POST);
+                RestClient client = new RestClient(baseURL);
+                RestRequest request = new RestRequest("editarNota", Method.POST);
+
+                request.AddJsonBody(new { notaID = notaID, notaNova = nota });;
                 request.AddHeader("Authorization", Token);
-                request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ notaID: \"" + notaID + "\" , notaNova: { \"titulo\": \"" + nota.titulo + "\" , \"nota\": \"" + nota.nota + "\" } }"), ParameterType.RequestBody);
 
                 IRestResponse response = client.Execute<object>(request);
 
@@ -112,10 +115,11 @@ namespace OrganizaTudo.Controllers
         {
             try
             {
-                RestClient client = new RestClient($"{baseURL}/deletarNota");
-                RestRequest request = new RestRequest(Method.POST);
+                RestClient client = new RestClient(baseURL);
+                RestRequest request = new RestRequest("deletarNota", Method.POST);
+                
+                request.AddJsonBody(new { notaID = notaID });
                 request.AddHeader("Authorization", Token);
-                request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ notaID: \"" + notaID + "\" }"), ParameterType.RequestBody);
 
                 IRestResponse response = client.Execute<object>(request);
 
@@ -133,10 +137,11 @@ namespace OrganizaTudo.Controllers
             try
             {
                 bool privacidade = !publica;
-                RestClient client = new RestClient($"{baseURL}/atualizarPrivacidadeNota");
-                RestRequest request = new RestRequest(Method.POST);
+                RestClient client = new RestClient(baseURL);
+                RestRequest request = new RestRequest("atualizarPrivacidadeNota", Method.POST);
+
+                request.AddJsonBody(new { privacidade = privacidade, notaID = notaID });
                 request.AddHeader("Authorization", Token);
-                request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ notaID: \"" + notaID + "\" , privacidade: \"" + privacidade + "\" }"), ParameterType.RequestBody);
 
                 IRestResponse response = client.Execute<object>(request);
 
