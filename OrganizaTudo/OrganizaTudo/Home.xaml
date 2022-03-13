@@ -5,11 +5,37 @@
 
     <ContentPage Title="Notas" HeightRequest="-1" >
         <StackLayout>
-            <Entry x:Name="txtSearch" FontSize="Title" Margin="30,10,30,5" HorizontalTextAlignment="Center" Placeholder="Busca por Título" ClearButtonVisibility="WhileEditing" />
+            <Entry x:Name="txtSearch" FontSize="Large" Margin="30,10,30,5" HorizontalTextAlignment="Center" Placeholder="Busca por Título" ClearButtonVisibility="WhileEditing" />
 
-            <ListView x:Name="lv" Margin="0,0,0,0"></ListView>
+            <ListView x:Name="lv" Margin="0,15,0,0" HasUnevenRows="true" IsPullToRefreshEnabled="true" RefreshControlColor="#35C0ED" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
 
-            <Image x:Name="imgAdd" Source="ic_add_circle.png" HorizontalOptions="End" Margin="0,8,12,12" HeightRequest="55">
+                            <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Padding="10" >
+
+                                <Label Text="{Binding titulo}" FontSize="20" HorizontalOptions="StartAndExpand" />
+                                
+                                <!--Checkbox-->
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="End" >
+                                    <Label Text="Nota Publica" VerticalOptions="Center" HorizontalTextAlignment="End" />
+                                    <CheckBox IsChecked="{Binding publica}"></CheckBox>
+                                </StackLayout>
+                                
+                            </StackLayout>
+
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="LinkNota" CommandParameter="{Binding .}" Text="Copiar Link" />
+                                <MenuItem Clicked="VisualizarNota" CommandParameter="{Binding .}" Text="Visualizar" />
+                                <MenuItem Clicked="DeletarNota" CommandParameter="{Binding .}" Text="Excluir" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Image x:Name="imgAdd" Source="ic_add_circle.png" HorizontalOptions="End" Margin="0,8,10,12" HeightRequest="55">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnImageNameTapped" NumberOfTapsRequired="1" />
                 </Image.GestureRecognizers>

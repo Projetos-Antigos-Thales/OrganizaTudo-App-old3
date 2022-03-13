@@ -41,6 +41,33 @@ namespace OrganizaTudo.Controllers
             }
         }
 
+        public async Task<List<Nota>> PesquisarNotas(string Token)
+        {
+            try
+            {
+                RestClient client = new RestClient($"{baseURL}/buscarNotas");
+                RestRequest request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", Token);
+                //request.AddParameter("Authorization", Token, ParameterType.HttpHeader);
+
+                IRestResponse response = client.Execute<object>(request);
+                if (response.IsSuccessful)
+                {
+                    List<Nota> notas = JsonConvert.DeserializeObject<List<Nota>>(response.Content, new JsonSerializerSettings
+                    {
+                        NullValueHandling = NullValueHandling.Ignore,
+                        MissingMemberHandling = MissingMemberHandling.Ignore
+                    });
+                    return notas;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public bool InserirNota(string Token, Nota nota)
         {
             try
@@ -101,12 +128,25 @@ namespace OrganizaTudo.Controllers
             }
         }
 
-        // Pesquisar Nota por ID
-        // Pesquisar Notas por Título
-        // Buscar Notas
-        // Editar Nota
-        // Atualizar Privacidade da Nota
+        public bool AtualizarPrivacidadeNota(string Token, string notaID, bool privacidade)
+        {
+            try
+            {
+                RestClient client = new RestClient($"{baseURL}/atualizarPrivacidadeNota");
+                RestRequest request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", Token);
+                request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ notaID: \"" + notaID + "\" , privacidade: \"" + notaID + "\" }"), ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute<object>(request);
+
+                if (response.IsSuccessful && response.Content.Equals("\"200\"")) return true;
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
     }
-
 }

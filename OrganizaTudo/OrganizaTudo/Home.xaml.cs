@@ -5,6 +5,8 @@ using OrganizaTudo.Controllers;
 using OrganizaTudo.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Plugin.Toast;
+using Xamarin.Essentials;
 
 namespace OrganizaTudo
 {
@@ -35,29 +37,19 @@ namespace OrganizaTudo
         {
             NotasController notasController = new NotasController();
             List<Nota> notas = await notasController.BuscarNotas(usuario.token);
-            foreach (Nota nota in notas)
-            {
-                Console.WriteLine(nota.titulo + "\n");
-            }
 
             // Revertendo a ordem da lista, devido comportamento da API
             notas.Reverse();
 
             lv.ItemsSource = notas;
-            lv.ItemTemplate = new DataTemplate(typeof(ListNotas));
-            lv.ItemTemplate.SetBinding(ListNotas.TituloProperty, "titulo");
-            lv.ItemTemplate.SetBinding(ListNotas.PublicaProperty, "publica");
-            lv.HasUnevenRows = true;
-            lv.IsPullToRefreshEnabled = true;
             lv.Refreshing += Lv_Refreshing;
-            lv.RefreshControlColor = Color.FromHex("#35C0ED");
-
 
             lv.ItemTapped += async (e, s) =>
             {
                 lv.SelectedItem = null;
                 await Navigation.PushAsync(new EditarNota(s.Item as Nota));
             };
+
         }
 
         private async void Lv_Refreshing(object sender, EventArgs e)
@@ -88,6 +80,70 @@ namespace OrganizaTudo
         {
             SessaoController.FinalizarSessaoAsync();
             await Navigation.PopAsync();
+        }
+
+        public async void LinkNota(object sender, EventArgs e)
+        {
+            Nota nota = (Nota)((MenuItem)sender).CommandParameter;
+            string URL = $"https://organizatudo.netlify.app/nota/{nota.id.Oid}";
+
+            try
+            {
+                await Clipboard.SetTextAsync(URL);
+                CrossToastPopUp.Current.ShowToastMessage("Link Copiado!");
+            }
+            catch (Exception)
+            {
+                CrossToastPopUp.Current.ShowToastError("Ocorreu um erro durante esse processo!");
+            }
+
+        }
+
+        public async void VisualizarNota(object sender, EventArgs e)
+        {
+            Nota nota = (Nota)((MenuItem)sender).CommandParameter;
+            string URL = $"https://organizatudo.netlify.app/nota/{nota.id.Oid}";
+
+            try
+            {
+                await Browser.OpenAsync(URL, BrowserLaunchMode.SystemPreferred);
+            }
+            catch (Exception)
+            {
+                CrossToastPopUp.Current.ShowToastError("Ocorreu um erro durante esse processo!");
+            }
+
+        }
+
+        public async void DeletarNota(object sender, EventArgs e)
+        {
+            Nota nota = (Nota)((MenuItem)sender).CommandParameter;
+
+            try
+            {
+                NotasController notasController = new NotasController();
+
+
+                bool confirm = await DisplayAlert("Excluir Nota", "Tem certeza que deseja excluir essa nota?", "Sim", "Cancelar");
+
+                if (confirm)
+                {
+                    if (notasController.DeletarNota(usuario.token, nota.id.Oid))
+                    {
+                        CarregarNotas();
+                        CrossToastPopUp.Current.ShowToastMessage("Nota Excluida!");
+                    }
+                    else
+                    {
+                        CrossToastPopUp.Current.ShowToastError("Oorreu um erro, por favor tente novamente");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
+            }
+
         }
 
     }

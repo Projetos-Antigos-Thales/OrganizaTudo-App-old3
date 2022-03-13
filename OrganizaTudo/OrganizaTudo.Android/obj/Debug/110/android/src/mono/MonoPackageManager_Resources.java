@@ -6,6 +6,8 @@ public class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"Newtonsoft.Json.dll",
 		"OrganizaTudo.dll",
+		"Plugin.Toast.Abstractions.dll",
+		"Plugin.Toast.dll",
 		"RestSharp.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
