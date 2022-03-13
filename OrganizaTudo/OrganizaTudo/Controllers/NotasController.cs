@@ -128,14 +128,15 @@ namespace OrganizaTudo.Controllers
             }
         }
 
-        public bool AtualizarPrivacidadeNota(string Token, string notaID, bool privacidade)
+        public bool AtualizarPrivacidadeNota(string Token, string notaID, bool publica)
         {
             try
             {
+                bool privacidade = !publica;
                 RestClient client = new RestClient($"{baseURL}/atualizarPrivacidadeNota");
                 RestRequest request = new RestRequest(Method.POST);
                 request.AddHeader("Authorization", Token);
-                request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ notaID: \"" + notaID + "\" , privacidade: \"" + notaID + "\" }"), ParameterType.RequestBody);
+                request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ notaID: \"" + notaID + "\" , privacidade: \"" + privacidade + "\" }"), ParameterType.RequestBody);
 
                 IRestResponse response = client.Execute<object>(request);
 

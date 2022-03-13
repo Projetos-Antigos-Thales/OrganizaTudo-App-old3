@@ -19,15 +19,16 @@
                                 <!--Checkbox-->
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="End" >
                                     <Label Text="Nota Publica" VerticalOptions="Center" HorizontalTextAlignment="End" />
-                                    <CheckBox IsChecked="{Binding publica}"></CheckBox>
+                                    <CheckBox IsChecked="{Binding publica}" x:Name="cbxPublicidade"></CheckBox>
                                 </StackLayout>
                                 
                             </StackLayout>
 
                             <ViewCell.ContextActions>
-                                <MenuItem Clicked="LinkNota" CommandParameter="{Binding .}" Text="Copiar Link" />
-                                <MenuItem Clicked="VisualizarNota" CommandParameter="{Binding .}" Text="Visualizar" />
                                 <MenuItem Clicked="DeletarNota" CommandParameter="{Binding .}" Text="Excluir" IsDestructive="True" />
+                                <MenuItem Clicked="VisualizarNota" CommandParameter="{Binding .}" Text="Visualizar Nota" />
+                                <MenuItem Clicked="PrivacidadeNota" CommandParameter="{Binding .}" Text="Alterar Privacidade" />
+                                <MenuItem Clicked="LinkNota" CommandParameter="{Binding .}" Text="Copiar Link Publico" />
                             </ViewCell.ContextActions>
 
                         </ViewCell>

@@ -50,27 +50,6 @@ namespace OrganizaTudo
             }
         }
 
-        private async void btnExcluir_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                NotasController notasController = new NotasController();
-
-                if (notasController.DeletarNota(usuario.token, nota.id.Oid))
-                {
-                    await Navigation.PopAsync();
-                }
-                else
-                {
-                    await DisplayAlert("Ocorreu um erro", "Tente novamente", "voltar");
-                }
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Ocorreu um erro:", ex.Message, "voltar");
-            }
-        }
-
         public void Titulo_Changed(object sender, EventArgs e)
         {
             CompararNota();
