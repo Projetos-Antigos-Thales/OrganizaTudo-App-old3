@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OrganizaTudo.Controllers;
 using OrganizaTudo.Models;
 using Xamarin.Forms;
@@ -31,7 +27,7 @@ namespace OrganizaTudo
             try
             {
                 NotasController notasController = new NotasController();
-                notasController.InserirNota(usuario.token, new Nota { titulo = txtTitulo.Text, nota = txtNota.Text });
+                await notasController.InserirNota(usuario.token, new Nota { titulo = txtTitulo.Text, nota = txtNota.Text });
                 await Navigation.PopAsync();
             }
             catch (Exception ex)

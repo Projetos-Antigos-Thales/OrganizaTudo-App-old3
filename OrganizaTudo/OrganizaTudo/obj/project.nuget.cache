@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "h3gSVXNKoUHFOOuHXwSfbJpTd0SCe2VDNzjWWjjA7Ik2865LXXOdDo4AIlnP36m4Dp65FzOZcED+QXBb2m03JQ==",
+  "dgSpecHash": "SzfmeJxTmOY4va/ayZ/SrODSDigV7pkadAP+K7d+5DFlV00Sg08kvqIvMv1RlWh4+zM0z6rzxtDokuSJPZMjVA==",
   "success": true,
   "projectFilePath": "D:\\Projetos\\dotnet\\App.OrganizaTudo\\OrganizaTudo\\OrganizaTudo\\OrganizaTudo.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,6 @@
     "C:\\Users\\thale\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\thale\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\thale\\.nuget\\packages\\plugin.toast\\2.2.0\\plugin.toast.2.2.0.nupkg.sha512",
-    "C:\\Users\\thale\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512",
     "C:\\Users\\thale\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
     "C:\\Users\\thale\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
     "C:\\Users\\thale\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",

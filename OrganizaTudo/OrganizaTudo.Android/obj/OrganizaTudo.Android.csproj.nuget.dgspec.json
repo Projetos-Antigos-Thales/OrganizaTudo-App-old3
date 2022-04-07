@@ -112,10 +112,6 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "RestSharp": {
-              "target": "Package",
-              "version": "[106.12.0, )"
-            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.6.1, )"

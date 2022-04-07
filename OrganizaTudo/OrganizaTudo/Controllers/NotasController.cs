@@ -1,32 +1,32 @@
 ﻿using Newtonsoft.Json;
-using RestSharp;
-using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using OrganizaTudo.Models;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Text;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace OrganizaTudo.Controllers
 {
     public class NotasController
     {
+        // URL Base da API (MongoDB)
         public static readonly string baseURL = "https://webhooks.mongodb-realm.com/api/client/v2.0/app/organiza-tudo-luhho/service/API/incoming_webhook";
 
+        // Retorna uma lista com todas as notas do usuário
         public async Task<List<Nota>> BuscarNotas(string Token)
         {
             try
             {
-                RestClient client = new RestClient(baseURL);
-                RestRequest request = new RestRequest("buscarNotas", Method.POST);
-                request.AddHeader("Authorization", Token);
-                //request.AddParameter("Authorization", Token, ParameterType.HttpHeader);
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Authorization", Token);
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/buscarNotas", null);
 
-                IRestResponse response = client.Execute<object>(request);
-                if (response.IsSuccessful)
+                if (response != null)
                 {
-                    List<Nota> notas = JsonConvert.DeserializeObject<List<Nota>>(response.Content, new JsonSerializerSettings
+                    List<Nota> notas = JsonConvert.DeserializeObject<List<Nota>>(await response.Content.ReadAsStringAsync(), new JsonSerializerSettings
                     {
                         NullValueHandling = NullValueHandling.Ignore,
                         MissingMemberHandling = MissingMemberHandling.Ignore
@@ -41,47 +41,38 @@ namespace OrganizaTudo.Controllers
             }
         }
 
-        public async Task<List<Nota>> PesquisarNotas(string Token)
+        // Realiza uma filtragem na notas do usuário através do título (não acessa a API)
+        public List<Nota> PesquisarNotas(List<Nota> notas, string regex)
         {
             try
             {
-                RestClient client = new RestClient(baseURL);
-                RestRequest request = new RestRequest("buscarNotas", Method.POST);
-                
-                request.AddHeader("Authorization", Token);
+                IEnumerable<Nota> filtro = notas.Where(x => x.titulo.ToLower().Contains(regex.ToLower()));
+                return filtro.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-                IRestResponse response = client.Execute<object>(request);
-                if (response.IsSuccessful)
+        // Salva uma nova nova no MongoDB
+        public async Task<bool> InserirNota(string Token, Nota nota)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Authorization", Token);
+
+                var body = JObject.Parse("{ nota: { \"titulo\": \"" + nota.titulo + "\" , \"nota\": \"" + nota.nota + "\" } }");
+
+                var data = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/inserirNota", data);
+
+                if (response != null)
                 {
-                    List<Nota> notas = JsonConvert.DeserializeObject<List<Nota>>(response.Content, new JsonSerializerSettings
-                    {
-                        NullValueHandling = NullValueHandling.Ignore,
-                        MissingMemberHandling = MissingMemberHandling.Ignore
-                    });
-                    return notas;
+                    string result = await response.Content.ReadAsStringAsync();
+                    if (result.Equals("\"200\"")) return true;
                 }
-                return null;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public bool InserirNota(string Token, Nota nota)
-        {
-            try
-            {
-                RestClient client = new RestClient(baseURL);
-                RestRequest request = new RestRequest("inserirNota", Method.POST);
-
-                request.AddJsonBody(new { nota = nota });
-                request.AddHeader("Authorization", Token);
-                // request.AddParameter("application/json; charset=utf-8", JObject.Parse("{ nota: { \"titulo\": \"" + nota.titulo + "\" , \"nota\": \"" + nota.nota + "\" } }"), ParameterType.RequestBody);
-
-                IRestResponse response = client.Execute<object>(request);
-
-                if (response.IsSuccessful && response.Content.Equals("200")) return true;
                 return false;
             }
             catch (Exception)
@@ -90,19 +81,21 @@ namespace OrganizaTudo.Controllers
             }
         }
 
-        public bool EditarNota(string Token, Nota nota, string notaID)
+        // Edita as informações de uma nota já existente
+        public async Task<bool> EditarNota(string Token, Nota nota, string notaID)
         {
             try
             {
-                RestClient client = new RestClient(baseURL);
-                RestRequest request = new RestRequest("editarNota", Method.POST);
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Authorization", Token);
+                var data = new StringContent(JsonConvert.SerializeObject(new { notaID, notaNova = nota }), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/editarNota", data);
 
-                request.AddJsonBody(new { notaID = notaID, notaNova = nota });;
-                request.AddHeader("Authorization", Token);
-
-                IRestResponse response = client.Execute<object>(request);
-
-                if (response.IsSuccessful && response.Content.Equals("\"200\"")) return true;
+                if (response != null)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+                    if (result.Equals("\"200\"")) return true;
+                }
                 return false;
             }
             catch (Exception)
@@ -111,19 +104,21 @@ namespace OrganizaTudo.Controllers
             }
         }
 
-        public bool DeletarNota(string Token, string notaID)
+        // Exclui (permanentemente) uma nota existente
+        public async Task<bool> DeletarNota(string Token, string notaID)
         {
             try
             {
-                RestClient client = new RestClient(baseURL);
-                RestRequest request = new RestRequest("deletarNota", Method.POST);
-                
-                request.AddJsonBody(new { notaID = notaID });
-                request.AddHeader("Authorization", Token);
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Authorization", Token);
+                var data = new StringContent(JsonConvert.SerializeObject(new { notaID }), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/deletarNota", data);
 
-                IRestResponse response = client.Execute<object>(request);
-
-                if (response.IsSuccessful && response.Content.Equals("\"200\"")) return true;
+                if (response != null)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+                    if (result.Equals("\"200\"")) return true;
+                }
                 return false;
             }
             catch (Exception)
@@ -132,20 +127,23 @@ namespace OrganizaTudo.Controllers
             }
         }
 
-        public bool AtualizarPrivacidadeNota(string Token, string notaID, bool publica)
+        // Atualiza a privacidade de uma nota (se uma nota publica for atualizada, passará a ser privada)
+        public async Task<bool> AtualizarPrivacidadeNota(string Token, string notaID, bool publica)
         {
             try
             {
                 bool privacidade = !publica;
-                RestClient client = new RestClient(baseURL);
-                RestRequest request = new RestRequest("atualizarPrivacidadeNota", Method.POST);
 
-                request.AddJsonBody(new { privacidade = privacidade, notaID = notaID });
-                request.AddHeader("Authorization", Token);
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Authorization", Token);
+                var data = new StringContent(JsonConvert.SerializeObject(new { notaID, privacidade }), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/atualizarPrivacidadeNota", data);
 
-                IRestResponse response = client.Execute<object>(request);
-
-                if (response.IsSuccessful && response.Content.Equals("\"200\"")) return true;
+                if (response != null)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+                    if (result.Equals("\"200\"")) return true;
+                }
                 return false;
             }
             catch (Exception)

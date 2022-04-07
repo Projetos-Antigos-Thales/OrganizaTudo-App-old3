@@ -12,7 +12,6 @@
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "13.0.1",
           "Plugin.Toast": "2.2.0",
-          "RestSharp": "106.12.0",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "5.0.0.2012",
           "sqlite-net-pcl": "1.8.116"
@@ -47,14 +46,6 @@
           "lib/netstandard/Plugin.Toast.dll": {
             "assemblyVersion": "2.1.0.0",
             "fileVersion": "2.1.0.0"
-          }
-        }
-      },
-      "RestSharp/106.12.0": {
-        "runtime": {
-          "lib/netstandard2.0/RestSharp.dll": {
-            "assemblyVersion": "106.12.0.0",
-            "fileVersion": "106.12.0.0"
           }
         }
       },
@@ -204,13 +195,6 @@
       "sha512": "sha512-PDq+r0P/WRu4YZimpwwfeLaTpHCVWlcw3MjJRC1be6Cg4ORfXL8YDz3HchnrRssRueUgP9ouwzLaQ4tLCD3Q4w==",
       "path": "plugin.toast/2.2.0",
       "hashPath": "plugin.toast.2.2.0.nupkg.sha512"
-    },
-    "RestSharp/106.12.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-irOsQHe5nTJB0BKxGQnTX1dsgCPl5dLTxvL7gbl98JiFPiHMN4wpFyUG/66ZpaFCsIrPKh6XwozWXlwYe9JwYQ==",
-      "path": "restsharp/106.12.0",
-      "hashPath": "restsharp.106.12.0.nupkg.sha512"
     },
     "sqlite-net-pcl/1.8.116": {
       "type": "package",

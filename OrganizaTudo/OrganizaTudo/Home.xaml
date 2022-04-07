@@ -5,7 +5,7 @@
 
     <ContentPage Title="Notas" HeightRequest="-1" >
         <StackLayout>
-            <Entry x:Name="txtSearch" FontSize="Large" Margin="30,10,30,5" HorizontalTextAlignment="Center" Placeholder="Busca por Título" ClearButtonVisibility="WhileEditing" />
+            <Entry x:Name="txtSearch" FontSize="Large" Margin="30,10,30,5" HorizontalTextAlignment="Center" Placeholder="Busca por Título" ClearButtonVisibility="WhileEditing" TextChanged="txtSearch_TextChanged" />
 
             <ListView x:Name="lv" Margin="0,15,0,0" HasUnevenRows="true" IsPullToRefreshEnabled="true" RefreshControlColor="#35C0ED" SelectionMode="None">
                 <ListView.ItemTemplate>

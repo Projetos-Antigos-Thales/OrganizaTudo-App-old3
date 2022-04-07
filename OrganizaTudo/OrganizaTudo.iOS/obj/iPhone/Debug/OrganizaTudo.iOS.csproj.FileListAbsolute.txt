@@ -1,7 +1,10 @@
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\OrganizaTudo.iOS.exe
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\OrganizaTudo.iOS.pdb
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\Newtonsoft.Json.dll
-D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\RestSharp.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\Plugin.Toast.Abstractions.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\Plugin.Toast.Abstractions.pdb
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\Plugin.Toast.dll
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\Plugin.Toast.pdb
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\SQLite-net.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\SQLitePCLRaw.batteries_v2.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\SQLitePCLRaw.nativelibrary.dll
@@ -57,9 +60,14 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Deb
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\bin\iPhone\Debug\OrganizaTudo.pdb
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\actool\_ProcessedImageAssetsPath.items
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\ibtool\_ProcessedInterfaceDefinitionsPath.items
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\coremlc\_ProcessedCoreMLModelsPath.items
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\_ProcessedBundleResourcesPath.items
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\_ProcessedContentPath.items
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\optimized\
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\OrganizaTudo.iOS.csproj.AssemblyReference.cache
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo.iOS\obj\iPhone\Debug\OrganizaTudo.iOS.csproj.CoreCompileInputs.cache

@@ -13,7 +13,15 @@ namespace OrganizaTudo
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : TabbedPage
     {
+        // Obj que salva os dados de sessão do usuário para manuseio
         private Sessao usuario;
+
+        // Objs que armazenam as notas do usuário para manuseio
+        private List<Nota> notasOnline;
+        private List<Nota> notasOffline;
+
+        // true = a lista está sendo atualizada
+        private bool isRefresing = false;
 
         public Home()
         {
@@ -45,6 +53,8 @@ namespace OrganizaTudo
             // Revertendo a ordem da lista, devido comportamento da API
             notas.Reverse();
 
+            notasOnline = notas;
+            notasOffline = notas;
             lv.ItemsSource = notas;
             lv.Refreshing += Lv_Refreshing;
 
@@ -59,9 +69,12 @@ namespace OrganizaTudo
         // Evento que roda quando a ListView está sendo atualizada
         private async void Lv_Refreshing(object sender, EventArgs e)
         {
+            isRefresing = true;
+            txtSearch.Text = "";
             await Task.Delay(500);
             CarregarNotas();
             lv.IsRefreshing = false;
+            isRefresing = false;
         }
 
         // Copia a URL da nota para o dispositivo do usuário
@@ -113,7 +126,7 @@ namespace OrganizaTudo
 
                 if (confirm)
                 {
-                    if (notasController.DeletarNota(usuario.token, nota.id.Oid))
+                    if (await notasController.DeletarNota(usuario.token, nota.id.Oid))
                     {
                         CarregarNotas();
                         CrossToastPopUp.Current.ShowToastMessage("Nota Excluida!");
@@ -132,7 +145,7 @@ namespace OrganizaTudo
         }
 
         // Altera a publicidade de uma nota
-        public void PrivacidadeNota(object sender, EventArgs e)
+        public async void PrivacidadeNota(object sender, EventArgs e)
         {
             Nota nota = (Nota)((MenuItem)sender).CommandParameter;
 
@@ -140,7 +153,7 @@ namespace OrganizaTudo
             {
                 NotasController notasController = new NotasController();
 
-                if (notasController.AtualizarPrivacidadeNota(usuario.token, nota.id.Oid, nota.publica))
+                if (await notasController.AtualizarPrivacidadeNota(usuario.token, nota.id.Oid, nota.publica))
                 {
                     CarregarNotas();
                     CrossToastPopUp.Current.ShowToastMessage("Privacidade alterada!");
@@ -155,6 +168,23 @@ namespace OrganizaTudo
                 CrossToastPopUp.Current.ShowToastError($"Oorreu um erro:");
             }
 
+        }
+
+        // Busca notas pelo título
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string regex = e.NewTextValue;
+            if (!string.IsNullOrEmpty(regex))
+            {
+
+                NotasController notasController = new NotasController();
+                List<Nota> notas = notasController.PesquisarNotas(notasOffline, regex);
+                lv.ItemsSource = notas;
+            }
+            else if (!isRefresing)
+            {
+                lv.ItemsSource = notasOnline;
+            }
         }
 
 

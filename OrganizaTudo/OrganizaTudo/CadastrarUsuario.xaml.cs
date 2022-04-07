@@ -23,7 +23,7 @@ namespace OrganizaTudo
                 }
                 else
                 {
-                    lblErro.Text = UsuarioController.CriarConta(txtApelido.Text, txtEmail.Text, txtSenha.Text);
+                    lblErro.Text = await UsuarioController.CriarConta(txtApelido.Text, txtEmail.Text, txtSenha.Text);
 
                     if (lblErro.Text == null)
                     {

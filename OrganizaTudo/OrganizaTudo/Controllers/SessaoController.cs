@@ -11,27 +11,27 @@ namespace OrganizaTudo.Controllers
 {
     public class SessaoController
     {
+        // Busca a sessao salva no SQLite
         public static async Task<Sessao> BuscarSessaoAsync()
         {
             Repository db = await Repository.Instance;
-            // Busca a sessao salva no SQLite
             Sessao sessaoAtual = await db.GET(1);
             return sessaoAtual;
         }
 
+        // Salva a sessao no SQLite
         public static async Task IniciarSessaoAsync(Sessao sessao)
         {
             Repository db = await Repository.Instance;
             int registros = db.GET().Result.Count;
             sessao.ID = 1;
-            // Salvar a sessao no SQLite
             await db.SAVE(sessao, registros);
         }
 
+        // Finaliza (exclui) a sessao no SQLite
         public static async void FinalizarSessaoAsync()
         {
             Repository db = await Repository.Instance;
-            // Finaliza a sessao no SQLite
             await db.DELETE(await BuscarSessaoAsync());
         }
 

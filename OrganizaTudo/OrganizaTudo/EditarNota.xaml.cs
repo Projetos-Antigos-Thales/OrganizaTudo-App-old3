@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OrganizaTudo.Models;
 using OrganizaTudo.Controllers;
 using Xamarin.Forms;
@@ -24,6 +20,7 @@ namespace OrganizaTudo
             txtTitulo.Text = nota.titulo;
             txtNota.Text = nota.nota;
         }
+       
         public async void CarregarDadosSessao()
         {
             usuario = await SessaoController.BuscarSessaoAsync();
@@ -35,7 +32,7 @@ namespace OrganizaTudo
             {
                 NotasController notasController = new NotasController();
 
-                if (notasController.EditarNota(usuario.token, new Nota { titulo = txtTitulo.Text , nota = txtNota.Text }, nota.id.Oid))
+                if (await notasController.EditarNota(usuario.token, new Nota { titulo = txtTitulo.Text , nota = txtNota.Text }, nota.id.Oid))
                 {
                     await Navigation.PopAsync();
                 }

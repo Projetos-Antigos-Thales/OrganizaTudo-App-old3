@@ -30,4 +30,5 @@ namespace OrganizaTudo.Models
         [JsonProperty("$numberLong")]
         public string data { get; set; }
     }
+
 }
