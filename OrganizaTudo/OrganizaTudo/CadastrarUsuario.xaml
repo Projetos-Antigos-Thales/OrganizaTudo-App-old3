@@ -9,7 +9,7 @@
 
             <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" Margin="40,20,40,0" ReturnType="Next" />
 
-            <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" Margin="40,20,40,0" IsPassword="True" />
+            <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" Margin="40,20,40,0" IsPassword="True" Completed="btnCriarConta_Clicked" />
 
             <Button x:Name="btnCriarConta" Clicked="btnCriarConta_Clicked" BorderRadius="10" FontSize="Medium" Text="CRIAR CONTA" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED"></Button>
 

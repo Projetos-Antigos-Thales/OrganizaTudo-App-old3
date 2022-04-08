@@ -65,12 +65,7 @@ namespace OrganizaTudo
                 else
                 {
                     Sessao login = await UsuarioController.Login(apelido, senha);
-                    if (login == null)
-                    {
-                        lblErro.Text = $"Conta \"{apelido}\" não encontrada!";
-                        FinalizarLoad();
-                    }
-                    else
+                    if (login.error == null)
                     {
                         // Salvar Sessão
                         Sessao repository = (Sessao)BindingContext;
@@ -81,6 +76,11 @@ namespace OrganizaTudo
                         lblErro.Text = "";
                         txtApelido.Text = "";
                         txtSenha.Text = "";
+                        FinalizarLoad();
+                    }
+                    else
+                    {
+                        lblErro.Text = login.error;
                         FinalizarLoad();
                     }
                 }

@@ -14,5 +14,11 @@ namespace OrganizaTudo.Models
         public string senha { get; set; }
         public string token { get; set; }
         public bool manter { get; set; }
+
+        // Response status
+        public string error { get; set; }
+        public string error_code { get; set; }
+        public string message { get; set; }
+        public string sucess_code { get; set; }
     }
 }

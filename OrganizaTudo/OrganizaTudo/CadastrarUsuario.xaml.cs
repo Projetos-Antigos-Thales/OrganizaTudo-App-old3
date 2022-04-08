@@ -1,5 +1,7 @@
 ﻿using System;
 using OrganizaTudo.Controllers;
+using OrganizaTudo.Models;
+using Plugin.Toast;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,14 +25,20 @@ namespace OrganizaTudo
                 }
                 else
                 {
-                    lblErro.Text = await UsuarioController.CriarConta(txtApelido.Text, txtEmail.Text, txtSenha.Text);
+                    // Se não houver response.erro, significa que a conta foi criada corretamente
+                    Response response = await UsuarioController.CriarConta(txtApelido.Text, txtEmail.Text, txtSenha.Text);
 
-                    if (lblErro.Text == null)
+                    if (response.error == null)
                     {
+                        CrossToastPopUp.Current.ShowToastMessage(response.message);
                         await Navigation.PopAsync();
                         txtApelido.Text = "";
                         txtEmail.Text = "";
                         txtSenha.Text = "";
+                    }
+                    else
+                    {
+                        lblErro.Text = response.error;
                     }
                 }
             }

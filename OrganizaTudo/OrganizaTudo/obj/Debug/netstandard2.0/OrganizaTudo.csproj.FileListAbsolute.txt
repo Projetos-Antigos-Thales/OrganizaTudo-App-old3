@@ -16,3 +16,4 @@ D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstand
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\ref\OrganizaTudo.dll
 D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.pdb
+D:\Projetos\dotnet\App.OrganizaTudo\OrganizaTudo\OrganizaTudo\obj\Debug\netstandard2.0\OrganizaTudo.csproj.AssemblyReference.cache

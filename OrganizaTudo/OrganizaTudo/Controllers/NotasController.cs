@@ -13,7 +13,7 @@ namespace OrganizaTudo.Controllers
     public class NotasController
     {
         // URL Base da API (MongoDB)
-        public static readonly string baseURL = "https://webhooks.mongodb-realm.com/api/client/v2.0/app/organiza-tudo-luhho/service/API/incoming_webhook";
+        public static readonly string baseURL = "https://data.mongodb-api.com/app/application-0-mqvuy/endpoint";
 
         // Retorna uma lista com todas as notas do usuário
         public async Task<List<Nota>> BuscarNotas(string Token)
@@ -22,7 +22,7 @@ namespace OrganizaTudo.Controllers
             {
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Authorization", Token);
-                HttpResponseMessage response = await client.PostAsync($"{baseURL}/buscarNotas", null);
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/BuscarNotas", null);
 
                 if (response != null)
                 {
@@ -66,7 +66,7 @@ namespace OrganizaTudo.Controllers
                 var body = JObject.Parse("{ nota: { \"titulo\": \"" + nota.titulo + "\" , \"nota\": \"" + nota.nota + "\" } }");
 
                 var data = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync($"{baseURL}/inserirNota", data);
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/InserirNota", data);
 
                 if (response != null)
                 {
@@ -89,7 +89,7 @@ namespace OrganizaTudo.Controllers
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Authorization", Token);
                 var data = new StringContent(JsonConvert.SerializeObject(new { notaID, notaNova = nota }), Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync($"{baseURL}/editarNota", data);
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/EditarNota", data);
 
                 if (response != null)
                 {
@@ -112,7 +112,7 @@ namespace OrganizaTudo.Controllers
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Authorization", Token);
                 var data = new StringContent(JsonConvert.SerializeObject(new { notaID }), Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync($"{baseURL}/deletarNota", data);
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/DeletarNota", data);
 
                 if (response != null)
                 {
@@ -137,7 +137,7 @@ namespace OrganizaTudo.Controllers
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Authorization", Token);
                 var data = new StringContent(JsonConvert.SerializeObject(new { notaID, privacidade }), Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync($"{baseURL}/atualizarPrivacidadeNota", data);
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/AtualizarPrivacidadeNota", data);
 
                 if (response != null)
                 {
