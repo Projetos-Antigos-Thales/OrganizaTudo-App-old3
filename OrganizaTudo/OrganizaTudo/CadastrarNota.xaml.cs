@@ -33,7 +33,7 @@ namespace OrganizaTudo
                 if (response.error == null)
                 {
                     CrossToastPopUp.Current.ShowToastMessage(response.message);
-                    await Navigation.PopAsync();
+                    await Navigation.PushAsync(new Home());
                 }
                 else
                 {
@@ -49,14 +49,6 @@ namespace OrganizaTudo
 
         protected override bool OnBackButtonPressed()
         {
-            try
-            {
-                Navigation.PushAsync(new Home());
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
             return true;
         }
 

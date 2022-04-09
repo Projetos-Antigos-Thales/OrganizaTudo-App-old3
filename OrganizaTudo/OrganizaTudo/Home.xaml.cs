@@ -126,7 +126,7 @@ namespace OrganizaTudo
 
                 if (confirm)
                 {
-                    Response response = await notasController.AtualizarPrivacidadeNota(usuario.token, nota._id);
+                    Response response = await notasController.DeletarNota(usuario.token, nota._id);
 
                     if (response.error == null)
                     {

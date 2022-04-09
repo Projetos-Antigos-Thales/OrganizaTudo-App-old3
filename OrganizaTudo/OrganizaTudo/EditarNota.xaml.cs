@@ -37,7 +37,7 @@ namespace OrganizaTudo
                 if (response.error == null)
                 {
                     CrossToastPopUp.Current.ShowToastMessage(response.message);
-                    await Navigation.PopAsync();
+                    await Navigation.PushAsync(new Home());
                 }
                 else
                 {
@@ -89,6 +89,11 @@ namespace OrganizaTudo
                     btnSalvar.IsEnabled = true;
                 }
             }
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
         }
 
     }
