@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OrganizaTudo.Models
 {
-    public class Usuario
+    public class Usuario : Response
     {
         public string apelido { get; set; }
         public string senha { get; set; }

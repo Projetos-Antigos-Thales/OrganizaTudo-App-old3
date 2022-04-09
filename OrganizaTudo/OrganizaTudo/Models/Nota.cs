@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OrganizaTudo.Models
 {
-    public class Nota
+    public class Nota : Response
     {
         [JsonProperty("_id")]
         public Id id { get; set; }
