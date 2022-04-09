@@ -3,7 +3,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using OrganizaTudo.Controllers;
 using OrganizaTudo.Models;
-using System.Threading.Tasks;
 
 namespace OrganizaTudo
 {
@@ -23,7 +22,6 @@ namespace OrganizaTudo
                 Sessao usuario = await SessaoController.BuscarSessaoAsync();
                 if (usuario != null)
                 {
-                    await Task.Delay(100);
                     EfetuarLogin(usuario.apelido, usuario.senha, usuario.manter);
                 }
             }
@@ -56,7 +54,6 @@ namespace OrganizaTudo
             try
             {
                 IniciarLoad();
-                await Task.Delay(1000);
                 if (String.IsNullOrEmpty(apelido) || String.IsNullOrEmpty(senha))
                 {
                     lblErro.Text = $"Preencha todos os campos!";
