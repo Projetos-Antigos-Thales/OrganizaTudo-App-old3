@@ -3,6 +3,7 @@ using OrganizaTudo.Models;
 using OrganizaTudo.Controllers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.Toast;
 
 namespace OrganizaTudo
 {
@@ -31,14 +32,16 @@ namespace OrganizaTudo
             try
             {
                 NotasController notasController = new NotasController();
+                Response response = await notasController.EditarNota(usuario.token, new Nota { titulo = txtTitulo.Text, nota = txtNota.Text }, nota._id);
 
-                if (await notasController.EditarNota(usuario.token, new Nota { titulo = txtTitulo.Text , nota = txtNota.Text }, nota._id))
+                if (response.error == null)
                 {
+                    CrossToastPopUp.Current.ShowToastMessage(response.message);
                     await Navigation.PopAsync();
                 }
                 else
                 {
-                    await DisplayAlert("Ocorreu um erro", "Tente novamente", "voltar");
+                    await DisplayAlert("Ocorreu um erro", response.error, "voltar");
                 }
             }
             catch (Exception ex)

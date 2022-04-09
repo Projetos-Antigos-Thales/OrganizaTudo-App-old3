@@ -55,7 +55,7 @@ namespace OrganizaTudo.Controllers
         }
 
         // Salva uma nova nota no MongoDB
-        public async Task<bool> InserirNota(string Token, Nota nota)
+        public async Task<Response> InserirNota(string Token, Nota nota)
         {
             try
             {
@@ -69,9 +69,13 @@ namespace OrganizaTudo.Controllers
 
                 if (response != null)
                 {
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK) return true;
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<Response>(result);
+                    }
                 }
-                return false;
+                return new Response { error = "Ocorreu um erro, tente novamente mais tarde..." };
             }
             catch (Exception)
             {
@@ -80,7 +84,7 @@ namespace OrganizaTudo.Controllers
         }
 
         // Edita as informações de uma nota já existente
-        public async Task<bool> EditarNota(string Token, Nota nota, string notaID)
+        public async Task<Response> EditarNota(string Token, Nota nota, string notaID)
         {
             try
             {
@@ -91,9 +95,13 @@ namespace OrganizaTudo.Controllers
 
                 if (response != null)
                 {
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK) return true;
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<Response>(result);
+                    }
                 }
-                return false;
+                return new Response { error = "Ocorreu um erro, tente novamente mais tarde..." };
             }
             catch (Exception)
             {
@@ -102,7 +110,7 @@ namespace OrganizaTudo.Controllers
         }
 
         // Exclui (permanentemente) uma nota existente
-        public async Task<bool> DeletarNota(string Token, string notaID)
+        public async Task<Response> DeletarNota(string Token, string notaID)
         {
             try
             {
@@ -112,9 +120,13 @@ namespace OrganizaTudo.Controllers
 
                 if (response != null)
                 {
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK) return true;
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<Response>(result);
+                    }
                 }
-                return false;
+                return new Response { error = "Ocorreu um erro, tente novamente mais tarde..." };
             }
             catch (Exception)
             {
@@ -123,7 +135,7 @@ namespace OrganizaTudo.Controllers
         }
 
         // Atualiza a privacidade de uma nota (se uma nota publica for atualizada, passará a ser privada)
-        public async Task<bool> AtualizarPrivacidadeNota(string Token, string notaID)
+        public async Task<Response> AtualizarPrivacidadeNota(string Token, string notaID)
         {
             try
             {
@@ -133,9 +145,13 @@ namespace OrganizaTudo.Controllers
 
                 if (response != null)
                 {
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK) return true;
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<Response>(result);
+                    }
                 }
-                return false;
+                return new Response { error = "Ocorreu um erro, tente novamente mais tarde..." };
             }
             catch (Exception)
             {

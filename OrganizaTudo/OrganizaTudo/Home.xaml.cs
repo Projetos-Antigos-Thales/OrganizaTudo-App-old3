@@ -126,14 +126,16 @@ namespace OrganizaTudo
 
                 if (confirm)
                 {
-                    if (await notasController.DeletarNota(usuario.token, nota._id))
+                    Response response = await notasController.AtualizarPrivacidadeNota(usuario.token, nota._id);
+
+                    if (response.error == null)
                     {
                         CarregarNotas();
-                        CrossToastPopUp.Current.ShowToastMessage("Nota Excluida!");
+                        CrossToastPopUp.Current.ShowToastMessage(response.message);
                     }
                     else
                     {
-                        CrossToastPopUp.Current.ShowToastError("Oorreu um erro, por favor tente novamente");
+                        CrossToastPopUp.Current.ShowToastError(response.error);
                     }
                 }
             }
@@ -152,20 +154,21 @@ namespace OrganizaTudo
             try
             {
                 NotasController notasController = new NotasController();
+                Response response = await notasController.AtualizarPrivacidadeNota(usuario.token, nota._id);
 
-                if (await notasController.AtualizarPrivacidadeNota(usuario.token, nota._id))
+                if (response.error == null)
                 {
                     CarregarNotas();
-                    CrossToastPopUp.Current.ShowToastMessage("Privacidade alterada!");
+                    CrossToastPopUp.Current.ShowToastMessage(response.message);
                 }
                 else
                 {
-                    CrossToastPopUp.Current.ShowToastError("Oorreu um erro, por favor tente novamente");
+                    CrossToastPopUp.Current.ShowToastError(response.error);
                 }
             }
             catch (Exception)
             {
-                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro:");
+                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro");
             }
 
         }

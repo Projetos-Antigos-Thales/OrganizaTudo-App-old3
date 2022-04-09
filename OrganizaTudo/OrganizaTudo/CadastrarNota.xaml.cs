@@ -1,6 +1,7 @@
 ﻿using System;
 using OrganizaTudo.Controllers;
 using OrganizaTudo.Models;
+using Plugin.Toast;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,13 +28,37 @@ namespace OrganizaTudo
             try
             {
                 NotasController notasController = new NotasController();
-                await notasController.InserirNota(usuario.token, new Nota { titulo = txtTitulo.Text, nota = txtNota.Text });
-                await Navigation.PopAsync();
+                Response response = await notasController.InserirNota(usuario.token, new Nota { titulo = txtTitulo.Text, nota = txtNota.Text });
+
+                if (response.error == null)
+                {
+                    CrossToastPopUp.Current.ShowToastMessage(response.message);
+                    await Navigation.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Ocorreu um erro", response.error, "voltar");
+                }
+
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Ocorreu um erro:", ex.Message, "voltar");
             }
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            try
+            {
+                Navigation.PushAsync(new Home());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return true;
+        }
+
     }
 }
