@@ -7,12 +7,8 @@ namespace OrganizaTudo.Models
 {
     public class Nota : Response
     {
-        [JsonProperty("_id")]
-        public Id id { get; set; }
-
-        [JsonProperty("data")]
-        public Data ordem { get; set; }
-
+        public string _id { get; set; }
+        public long data { get; set; }
         public string usuario { get; set; }
         public string titulo { get; set; }
         public string nota { get; set; }

@@ -32,7 +32,7 @@ namespace OrganizaTudo
             {
                 NotasController notasController = new NotasController();
 
-                if (await notasController.EditarNota(usuario.token, new Nota { titulo = txtTitulo.Text , nota = txtNota.Text }, nota.id.Oid))
+                if (await notasController.EditarNota(usuario.token, new Nota { titulo = txtTitulo.Text , nota = txtNota.Text }, nota._id))
                 {
                     await Navigation.PopAsync();
                 }

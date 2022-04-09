@@ -22,16 +22,15 @@ namespace OrganizaTudo.Controllers
             {
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Authorization", Token);
-                HttpResponseMessage response = await client.PostAsync($"{baseURL}/BuscarNotas", null);
+                HttpResponseMessage response = await client.GetAsync($"{baseURL}/Notas");
 
                 if (response != null)
                 {
-                    List<Nota> notas = JsonConvert.DeserializeObject<List<Nota>>(await response.Content.ReadAsStringAsync(), new JsonSerializerSettings
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        NullValueHandling = NullValueHandling.Ignore,
-                        MissingMemberHandling = MissingMemberHandling.Ignore
-                    });
-                    return notas;
+                        var result = await response.Content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<List<Nota>>(result);
+                    }
                 }
                 return null;
             }
@@ -55,7 +54,7 @@ namespace OrganizaTudo.Controllers
             }
         }
 
-        // Salva uma nova nova no MongoDB
+        // Salva uma nova nota no MongoDB
         public async Task<bool> InserirNota(string Token, Nota nota)
         {
             try
@@ -66,12 +65,11 @@ namespace OrganizaTudo.Controllers
                 var body = JObject.Parse("{ nota: { \"titulo\": \"" + nota.titulo + "\" , \"nota\": \"" + nota.nota + "\" } }");
 
                 var data = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync($"{baseURL}/InserirNota", data);
+                HttpResponseMessage response = await client.PostAsync($"{baseURL}/Nota", data);
 
                 if (response != null)
                 {
-                    string result = await response.Content.ReadAsStringAsync();
-                    if (result.Equals("\"200\"")) return true;
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK) return true;
                 }
                 return false;
             }
@@ -88,13 +86,12 @@ namespace OrganizaTudo.Controllers
             {
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Authorization", Token);
-                var data = new StringContent(JsonConvert.SerializeObject(new { notaID, notaNova = nota }), Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync($"{baseURL}/EditarNota", data);
+                var data = new StringContent(JsonConvert.SerializeObject(new { notaNova = nota }), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PutAsync($"{baseURL}/Nota?id={notaID}", data);
 
                 if (response != null)
                 {
-                    string result = await response.Content.ReadAsStringAsync();
-                    if (result.Equals("\"200\"")) return true;
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK) return true;
                 }
                 return false;
             }
@@ -111,13 +108,11 @@ namespace OrganizaTudo.Controllers
             {
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Authorization", Token);
-                var data = new StringContent(JsonConvert.SerializeObject(new { notaID }), Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync($"{baseURL}/DeletarNota", data);
+                HttpResponseMessage response = await client.DeleteAsync($"{baseURL}/Nota?id={notaID}");
 
                 if (response != null)
                 {
-                    string result = await response.Content.ReadAsStringAsync();
-                    if (result.Equals("\"200\"")) return true;
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK) return true;
                 }
                 return false;
             }
@@ -128,21 +123,17 @@ namespace OrganizaTudo.Controllers
         }
 
         // Atualiza a privacidade de uma nota (se uma nota publica for atualizada, passará a ser privada)
-        public async Task<bool> AtualizarPrivacidadeNota(string Token, string notaID, bool publica)
+        public async Task<bool> AtualizarPrivacidadeNota(string Token, string notaID)
         {
             try
             {
-                bool privacidade = !publica;
-
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Authorization", Token);
-                var data = new StringContent(JsonConvert.SerializeObject(new { notaID, privacidade }), Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync($"{baseURL}/AtualizarPrivacidadeNota", data);
+                HttpResponseMessage response = await client.PutAsync($"{baseURL}/AtualizarPrivacidadeNota?id={notaID}", null);
 
                 if (response != null)
                 {
-                    string result = await response.Content.ReadAsStringAsync();
-                    if (result.Equals("\"200\"")) return true;
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK) return true;
                 }
                 return false;
             }

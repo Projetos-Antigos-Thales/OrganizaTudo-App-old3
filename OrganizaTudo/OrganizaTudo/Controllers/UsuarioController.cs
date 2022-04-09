@@ -24,7 +24,9 @@ namespace OrganizaTudo.Controllers
                 if (response != null)
                 {
                     string result = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<Sessao>(result);
+                    Sessao login = JsonConvert.DeserializeObject<Sessao>(result);
+                    login.senha = senha;
+                    return login;
                 }
 
                 return new Sessao { error = "Ocorreu um erro, tente novamente mais tarde..." };

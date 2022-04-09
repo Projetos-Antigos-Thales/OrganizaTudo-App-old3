@@ -81,7 +81,7 @@ namespace OrganizaTudo
         public async void LinkNota(object sender, EventArgs e)
         {
             Nota nota = (Nota)((MenuItem)sender).CommandParameter;
-            string URL = $"https://organizatudo.netlify.app/nota/{nota.id.Oid}";
+            string URL = $"https://organizatudo.netlify.app/nota/{nota._id}";
 
             try
             {
@@ -99,7 +99,7 @@ namespace OrganizaTudo
         public async void VisualizarNota(object sender, EventArgs e)
         {
             Nota nota = (Nota)((MenuItem)sender).CommandParameter;
-            string URL = $"https://organizatudo.netlify.app/nota/{nota.id.Oid}";
+            string URL = $"https://organizatudo.netlify.app/nota/{nota._id}";
 
             try
             {
@@ -126,7 +126,7 @@ namespace OrganizaTudo
 
                 if (confirm)
                 {
-                    if (await notasController.DeletarNota(usuario.token, nota.id.Oid))
+                    if (await notasController.DeletarNota(usuario.token, nota._id))
                     {
                         CarregarNotas();
                         CrossToastPopUp.Current.ShowToastMessage("Nota Excluida!");
@@ -153,7 +153,7 @@ namespace OrganizaTudo
             {
                 NotasController notasController = new NotasController();
 
-                if (await notasController.AtualizarPrivacidadeNota(usuario.token, nota.id.Oid, nota.publica))
+                if (await notasController.AtualizarPrivacidadeNota(usuario.token, nota._id))
                 {
                     CarregarNotas();
                     CrossToastPopUp.Current.ShowToastMessage("Privacidade alterada!");
