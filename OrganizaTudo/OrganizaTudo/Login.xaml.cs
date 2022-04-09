@@ -78,6 +78,7 @@ namespace OrganizaTudo
                     else
                     {
                         lblErro.Text = login.error;
+                        SessaoController.FinalizarSessaoAsync();
                         FinalizarLoad();
                     }
                 }
