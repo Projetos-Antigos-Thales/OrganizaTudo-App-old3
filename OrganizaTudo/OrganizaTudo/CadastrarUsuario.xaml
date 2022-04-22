@@ -5,13 +5,21 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" Margin="40,30,40,0" ReturnType="Next" />
+            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
+                <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" ReturnType="Next" />
+            </Frame>
 
-            <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" Margin="40,20,40,0" ReturnType="Next" />
+            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
+                <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" ReturnType="Next" />
+            </Frame>
 
-            <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" Margin="40,20,40,0" IsPassword="True" Completed="btnCriarConta_Clicked" />
+            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
+                <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" IsPassword="True" Completed="btnCriarConta_Clicked" />
+            </Frame>
 
-            <Button x:Name="btnCriarConta" Clicked="btnCriarConta_Clicked" BorderRadius="10" FontSize="Medium" Text="CRIAR CONTA" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED"></Button>
+            <Button 
+                x:Name="btnCriarConta" Clicked="btnCriarConta_Clicked" BorderRadius="15" FontSize="Medium" Text="CRIAR CONTA" Margin="30" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" HeightRequest="60">
+            </Button>
 
             <Label x:Name="lblErro" FontAttributes="Bold" FontSize="Medium" TextColor="#AA0000" HorizontalTextAlignment="Center" Margin="0,10,0,0"></Label>
         

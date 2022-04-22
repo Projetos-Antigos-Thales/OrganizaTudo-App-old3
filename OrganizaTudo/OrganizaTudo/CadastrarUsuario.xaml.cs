@@ -25,6 +25,7 @@ namespace OrganizaTudo
                 }
                 else
                 {
+                    lblErro.Text = "";
                     // Se não houver response.erro, significa que a conta foi criada corretamente
                     Response response = await UsuarioController.CriarConta(txtApelido.Text, txtEmail.Text, txtSenha.Text);
 
