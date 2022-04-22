@@ -6,8 +6,12 @@
     <!-- PÁGINA DE NOTAS -->
     <ContentPage Title="Notas" HeightRequest="-1" >
         <StackLayout>
-            
-            <Entry x:Name="txtSearch" FontSize="Large" Margin="30,10,30,5" HorizontalTextAlignment="Center" Placeholder="Busca por Título" ClearButtonVisibility="WhileEditing" TextChanged="txtSearch_TextChanged" />
+
+            <Frame BackgroundColor="Transparent" CornerRadius="20" Margin="30,10,30,0" Padding="20,10,20,10" >
+                <Entry x:Name="txtSearch" FontSize="Large" ReturnType="Send" HorizontalTextAlignment="Center" Placeholder="Busca por título" ClearButtonVisibility="WhileEditing" TextChanged="txtSearch_TextChanged" />
+            </Frame>
+
+            <!-- <Entry x:Name="txtSearch" FontSize="Large" Margin="30,10,30,5" HorizontalTextAlignment="Center" Placeholder="Busca por Título" ClearButtonVisibility="WhileEditing" TextChanged="txtSearch_TextChanged" /> -->
 
             <ListView x:Name="lv" Margin="0,15,0,0" HasUnevenRows="true" IsPullToRefreshEnabled="true" RefreshControlColor="#35C0ED" SelectionMode="None">
                 <ListView.ItemTemplate>
@@ -20,7 +24,7 @@
                                 
                                 <!--Checkbox-->
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="End" >
-                                    <Label Text="Nota Publica" VerticalOptions="Center" HorizontalTextAlignment="End" />
+                                    <Label Text="Nota publica" VerticalOptions="Center" HorizontalTextAlignment="End" />
                                     <CheckBox IsChecked="{Binding publica}" x:Name="cbxPublicidade" IsEnabled="False"></CheckBox>
                                 </StackLayout>
                                 
