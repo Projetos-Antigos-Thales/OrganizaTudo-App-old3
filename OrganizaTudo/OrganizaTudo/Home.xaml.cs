@@ -23,6 +23,18 @@ namespace OrganizaTudo
         // true = a lista está sendo atualizada
         private bool isRefresing = false;
 
+        // Controla o loading da listview
+        bool isBusy;
+        public bool IsBusy
+        {
+            get => isBusy;
+            set
+            {
+                isBusy = value;
+                OnPropertyChanged();
+            }
+        }
+
         public Home()
         {
             InitializeComponent();
@@ -48,6 +60,7 @@ namespace OrganizaTudo
         // Obtem as notas online
         public async void CarregarNotas()
         {
+            IsBusy = true;
             NotasController notasController = new NotasController();
             List<Nota> notas = await notasController.BuscarNotas(usuario.token);
 
@@ -64,6 +77,8 @@ namespace OrganizaTudo
                 lv.SelectedItem = null;
                 await Navigation.PushAsync(new EditarNota(s.Item as Nota));
             };
+
+            IsBusy = false;
 
         }
 
