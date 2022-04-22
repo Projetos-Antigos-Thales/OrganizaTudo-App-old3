@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OrganizaTudo.Home" NavigationPage.HasNavigationBar="False">
 
+    <!-- PÁGINA DE NOTAS -->
     <ContentPage Title="Notas" HeightRequest="-1" >
         <StackLayout>
+            
             <Entry x:Name="txtSearch" FontSize="Large" Margin="30,10,30,5" HorizontalTextAlignment="Center" Placeholder="Busca por Título" ClearButtonVisibility="WhileEditing" TextChanged="txtSearch_TextChanged" />
 
             <ListView x:Name="lv" Margin="0,15,0,0" HasUnevenRows="true" IsPullToRefreshEnabled="true" RefreshControlColor="#35C0ED" SelectionMode="None">
@@ -41,14 +43,39 @@
                     <TapGestureRecognizer Tapped="OnImageNameTapped" NumberOfTapsRequired="1" />
                 </Image.GestureRecognizers>
             </Image>
+            
         </StackLayout>
     </ContentPage>
 
+    <!-- PÁGINA DE PERFIL -->
     <ContentPage Title="Perfil">
         <StackLayout>
 
-            <Button x:Name="btnSair" Clicked="btnSair_Clicked" BorderRadius="10" FontSize="Medium" Text="SAIR" Margin="40,25,40,0" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED"></Button>
+            <Label x:Name="lblTitulo" FontSize="26" HorizontalTextAlignment="Center" Margin="0,30,0,0">Alteração de Apelido e E-mail</Label>
             
+            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,0" Padding="20,13,20,13" >
+                <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" ReturnType="Next" />
+            </Frame>
+
+            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,10" Padding="20,13,20,13" >
+                <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" ReturnType="Next" />
+            </Frame>
+
+            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,0" Padding="20,13,20,13" >
+                <Entry x:Name="txtSenha" Placeholder="Senha atual" FontSize="Large" IsPassword="True" Completed="Dados_Inseridos" />
+            </Frame>
+
+
+            <Button 
+                x:Name="btnSalvar" Clicked="btnSair_Clicked" BorderRadius="15" FontSize="Medium" Text="SALVAR" Margin="30" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" HeightRequest="60">
+            </Button>
+            
+            <Image x:Name="imgSair" Source="ic_add_circle.png" HorizontalOptions="End" Margin="0,203,10,0" HeightRequest="55">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="btnSair_Clicked" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+
         </StackLayout>
     </ContentPage>
 

@@ -210,5 +210,10 @@ namespace OrganizaTudo
             return true;
         }
 
+        private void Dados_Inseridos(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
