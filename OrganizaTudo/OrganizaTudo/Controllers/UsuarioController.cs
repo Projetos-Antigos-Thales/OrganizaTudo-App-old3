@@ -59,5 +59,53 @@ namespace OrganizaTudo.Controllers
             }
         }
 
+        // Edita o Apelido e E-mail do Usuário
+        public async Task<Response> AtualizarPerfil(string Token, string apelido, string email, string senha)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Authorization", Token);
+                var data = new StringContent(JsonConvert.SerializeObject(new { dados = new { apelido, email, senha } }), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PutAsync($"{baseURL}/Perfil", data);
+
+                if (response != null)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<Response>(result);
+                }
+                return new Response { error = "Ocorreu um erro, tente novamente mais tarde..." };
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // Retorna o perfil atualizado
+        public async Task<Usuario> BuscarPerfil(string Token)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Authorization", Token);
+                HttpResponseMessage response = await client.GetAsync($"{baseURL}/Perfil");
+
+                if (response != null)
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<Usuario>(result);
+                    }
+                }
+                return new Usuario { error = "Ocorreu um erro, tente novamente mais tarde..." };
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

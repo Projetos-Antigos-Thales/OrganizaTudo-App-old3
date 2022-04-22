@@ -71,7 +71,7 @@
 
 
             <Button 
-                x:Name="btnSalvar" Clicked="btnSair_Clicked" BorderRadius="15" FontSize="Medium" Text="SALVAR" Margin="30" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" HeightRequest="60">
+                x:Name="btnSalvar" Clicked="btnSalvar_Clicked" BorderRadius="15" FontSize="Medium" Text="SALVAR" Margin="30" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" HeightRequest="60">
             </Button>
             
             <Image x:Name="imgSair" Source="ic_add_circle.png" HorizontalOptions="End" Margin="0,203,10,0" HeightRequest="55">

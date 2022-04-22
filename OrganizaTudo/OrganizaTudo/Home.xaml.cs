@@ -33,6 +33,8 @@ namespace OrganizaTudo
         public async void CarregarDadosSessao()
         {
             usuario = await SessaoController.BuscarSessaoAsync();
+            txtApelido.Text = usuario.apelido;
+            txtEmail.Text = usuario.email;
             CarregarNotas();
         }
 
@@ -209,9 +211,59 @@ namespace OrganizaTudo
             return true;
         }
 
+        private void btnSalvar_Clicked(object sender, EventArgs e)
+        {
+            AtualizarPerfil();
+        }
+
         private void Dados_Inseridos(object sender, EventArgs e)
         {
+            AtualizarPerfil();
+        }
 
+        private async void AtualizarPerfil()
+        {
+            try
+            {
+                UsuarioController usuarioController = new UsuarioController();
+
+                Response response = await usuarioController.AtualizarPerfil(usuario.token, txtApelido.Text, txtEmail.Text, txtSenha.Text);
+
+                if (response.error == null)
+                {
+                    AtualizarSessao();
+                    CrossToastPopUp.Current.ShowToastMessage(response.message);
+                }
+                else
+                {
+                    CrossToastPopUp.Current.ShowToastError(response.error);
+                }
+            }
+            catch (Exception ex)
+            {
+                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
+            }
+        }
+
+        private async void AtualizarSessao()
+        {
+            try
+            {
+                UsuarioController usuarioController = new UsuarioController();
+
+                Usuario usuario = await usuarioController.BuscarPerfil(this.usuario.token);
+                await SessaoController.IniciarSessaoAsync(new Sessao { apelido = usuario.apelido, senha = this.usuario.senha, email = this.usuario.email, manter = this.usuario.manter, token = this.usuario.token });
+                this.usuario = await SessaoController.BuscarSessaoAsync();
+
+                if (usuario.error != null)
+                {
+                    CrossToastPopUp.Current.ShowToastError(usuario.error);
+                }
+            }
+            catch (Exception ex)
+            {
+                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
+            }
         }
 
     }

@@ -22,7 +22,7 @@ namespace OrganizaTudo
                 Sessao usuario = await SessaoController.BuscarSessaoAsync();
                 if (usuario != null)
                 {
-                    EfetuarLogin(usuario.apelido, usuario.senha, usuario.manter);
+                    if(usuario.manter) EfetuarLogin(usuario.apelido, usuario.senha, usuario.manter);
                 }
             }
             catch (Exception ex)
