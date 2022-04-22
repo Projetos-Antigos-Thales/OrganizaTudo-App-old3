@@ -33,7 +33,6 @@ namespace OrganizaTudo
         public async void CarregarDadosSessao()
         {
             usuario = await SessaoController.BuscarSessaoAsync();
-            btnSair.Text = $"Sair - {usuario.apelido}";
             CarregarNotas();
         }
 
