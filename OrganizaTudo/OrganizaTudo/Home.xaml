@@ -78,8 +78,10 @@
                 </Button>
                 <ActivityIndicator x:Name="actInd" IsRunning="False" IsVisible="False" HorizontalOptions="Center" Color="White" />
             </Grid>
-            
-            <Image x:Name="imgSair" Source="ic_log_out.png" HorizontalOptions="End" Margin="0,203,10,0" HeightRequest="55">
+
+            <Label x:Name="lblErro" FontAttributes="Bold" FontSize="Medium" TextColor="#AA0000" HorizontalTextAlignment="Center" Margin="0,0,0,0" HeightRequest="35"></Label>
+
+            <Image x:Name="imgSair" Source="ic_log_out.png" HorizontalOptions="End" VerticalOptions="End" Margin="0,203,10,0" HeightRequest="55">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="btnSair_Clicked" NumberOfTapsRequired="1" />
                 </Image.GestureRecognizers>

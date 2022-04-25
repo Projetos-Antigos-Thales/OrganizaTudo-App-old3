@@ -232,6 +232,8 @@ namespace OrganizaTudo
         {
             try
             {
+                lblErro.Text = "";
+
                 // Trava todas as opções
                 btnSalvar.Text = "";
                 ControlarComponentes(true);
@@ -250,7 +252,7 @@ namespace OrganizaTudo
                     // Destrava todas as opções
                     btnSalvar.Text = "ATUALIZAR DADOS";
                     ControlarComponentes(true);
-                    // CrossToastPopUp.Current.ShowToastError(response.error);
+                    lblErro.Text = response.error;
                 }
             }
             catch (Exception ex)
@@ -271,7 +273,7 @@ namespace OrganizaTudo
 
                 if (usuario.error != null)
                 {
-                    // CrossToastPopUp.Current.ShowToastError(usuario.error);
+                    lblErro.Text = usuario.error;
                 }
 
                 // Destrava todas as opções
