@@ -12,6 +12,8 @@
             </Frame>
 
             <!-- <Entry x:Name="txtSearch" FontSize="Large" Margin="30,10,30,5" HorizontalTextAlignment="Center" Placeholder="Busca por Título" ClearButtonVisibility="WhileEditing" TextChanged="txtSearch_TextChanged" /> -->
+            
+            <ActivityIndicator x:Name="activity" IsRunning="False" IsVisible="False" />
 
             <ListView x:Name="lv" Margin="0,15,0,0" HasUnevenRows="true" IsPullToRefreshEnabled="true" RefreshControlColor="#35C0ED" SelectionMode="None">
                 <ListView.ItemTemplate>
@@ -21,13 +23,13 @@
                             <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Padding="10" >
 
                                 <Label Text="{Binding titulo}" FontSize="20" HorizontalOptions="StartAndExpand" />
-                                
+
                                 <!--Checkbox-->
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="End" >
                                     <Label Text="Nota publica" VerticalOptions="Center" HorizontalTextAlignment="End" />
                                     <CheckBox IsChecked="{Binding publica}" x:Name="cbxPublicidade" IsEnabled="False"></CheckBox>
                                 </StackLayout>
-                                
+
                             </StackLayout>
 
                             <ViewCell.ContextActions>
@@ -42,8 +44,6 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
-            
             <Image x:Name="imgAdd" Source="ic_add_circle.png" HorizontalOptions="End" Margin="0,8,10,12" HeightRequest="55">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnImageNameTapped" NumberOfTapsRequired="1" />
@@ -72,9 +72,12 @@
             </Frame>
 
 
-            <Button 
-                x:Name="btnSalvar" Clicked="btnSalvar_Clicked" BorderRadius="15" FontSize="Medium" Text="SALVAR" Margin="30" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" HeightRequest="60">
-            </Button>
+            <Grid>
+                <Button 
+                x:Name="btnSalvar" Clicked="btnSalvar_Clicked" BorderRadius="15" FontSize="Medium" Text="ATUALIZAR DADOS" Margin="30" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" HeightRequest="60">
+                </Button>
+                <ActivityIndicator x:Name="actInd" IsRunning="False" IsVisible="False" HorizontalOptions="Center" Color="White" />
+            </Grid>
             
             <Image x:Name="imgSair" Source="ic_log_out.png" HorizontalOptions="End" Margin="0,203,10,0" HeightRequest="55">
                 <Image.GestureRecognizers>

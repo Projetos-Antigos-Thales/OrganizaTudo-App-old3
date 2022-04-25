@@ -5,7 +5,6 @@ using OrganizaTudo.Controllers;
 using OrganizaTudo.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Plugin.Toast;
 using Xamarin.Essentials;
 
 namespace OrganizaTudo
@@ -24,16 +23,7 @@ namespace OrganizaTudo
         private bool isRefresing = false;
 
         // Controla o loading da listview
-        bool isBusy;
-        public bool IsBusy
-        {
-            get => isBusy;
-            set
-            {
-                isBusy = value;
-                OnPropertyChanged();
-            }
-        }
+        public bool isBusy = true;
 
         public Home()
         {
@@ -60,7 +50,8 @@ namespace OrganizaTudo
         // Obtem as notas online
         public async void CarregarNotas()
         {
-            IsBusy = true;
+            activity.IsRunning = true;
+            activity.IsVisible = true;
             NotasController notasController = new NotasController();
             List<Nota> notas = await notasController.BuscarNotas(usuario.token);
 
@@ -78,7 +69,8 @@ namespace OrganizaTudo
                 await Navigation.PushAsync(new EditarNota(s.Item as Nota));
             };
 
-            IsBusy = false;
+            activity.IsRunning = false;
+            activity.IsVisible = false;
 
         }
 
@@ -102,11 +94,11 @@ namespace OrganizaTudo
             try
             {
                 await Clipboard.SetTextAsync(URL);
-                CrossToastPopUp.Current.ShowToastMessage("Link Copiado!");
+                // CrossToastPopUp.Current.ShowToastMessage("Link Copiado!");
             }
             catch (Exception)
             {
-                CrossToastPopUp.Current.ShowToastError("Ocorreu um erro durante esse processo!");
+                // CrossToastPopUp.Current.ShowToastError("Ocorreu um erro durante esse processo!");
             }
 
         }
@@ -123,7 +115,7 @@ namespace OrganizaTudo
             }
             catch (Exception)
             {
-                CrossToastPopUp.Current.ShowToastError("Ocorreu um erro durante esse processo!");
+                // CrossToastPopUp.Current.ShowToastError("Ocorreu um erro durante esse processo!");
             }
 
         }
@@ -147,17 +139,17 @@ namespace OrganizaTudo
                     if (response.error == null)
                     {
                         CarregarNotas();
-                        CrossToastPopUp.Current.ShowToastMessage(response.message);
+                        // CrossToastPopUp.Current.ShowToastMessage(response.message);
                     }
                     else
                     {
-                        CrossToastPopUp.Current.ShowToastError(response.error);
+                        // CrossToastPopUp.Current.ShowToastError(response.error);
                     }
                 }
             }
             catch (Exception ex)
             {
-                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
+                // CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
             }
 
         }
@@ -175,16 +167,16 @@ namespace OrganizaTudo
                 if (response.error == null)
                 {
                     CarregarNotas();
-                    CrossToastPopUp.Current.ShowToastMessage(response.message);
+                    // CrossToastPopUp.Current.ShowToastMessage(response.message);
                 }
                 else
                 {
-                    CrossToastPopUp.Current.ShowToastError(response.error);
+                    // CrossToastPopUp.Current.ShowToastError(response.error);
                 }
             }
             catch (Exception)
             {
-                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro");
+                // CrossToastPopUp.Current.ShowToastError($"Oorreu um erro");
             }
 
         }
@@ -240,6 +232,16 @@ namespace OrganizaTudo
         {
             try
             {
+                // Trava todas as opções
+                bool controles = false;
+                actInd.IsRunning = !controles;
+                actInd.IsVisible = !controles;
+                txtApelido.IsEnabled = controles;
+                txtEmail.IsEnabled = controles;
+                txtSenha.IsEnabled = controles;
+                btnSalvar.IsEnabled = controles;
+                btnSalvar.Text = "";
+
                 UsuarioController usuarioController = new UsuarioController();
 
                 Response response = await usuarioController.AtualizarPerfil(usuario.token, txtApelido.Text, txtEmail.Text, txtSenha.Text);
@@ -247,16 +249,16 @@ namespace OrganizaTudo
                 if (response.error == null)
                 {
                     AtualizarSessao();
-                    CrossToastPopUp.Current.ShowToastMessage(response.message);
+                    // CrossToastPopUp.Current.ShowToastMessage(response.message);
                 }
                 else
                 {
-                    CrossToastPopUp.Current.ShowToastError(response.error);
+                    // CrossToastPopUp.Current.ShowToastError(response.error);
                 }
             }
             catch (Exception ex)
             {
-                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
+                // CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
             }
         }
 
@@ -272,12 +274,25 @@ namespace OrganizaTudo
 
                 if (usuario.error != null)
                 {
-                    CrossToastPopUp.Current.ShowToastError(usuario.error);
+                    // CrossToastPopUp.Current.ShowToastError(usuario.error);
                 }
+
+                // Destrava todas as opções
+                bool controles = true;
+                btnSalvar.Text = "ATUALIZAR DADOS";
+                actInd.IsRunning = !controles;
+                actInd.IsVisible = !controles;
+                txtApelido.IsEnabled = controles;
+                txtEmail.IsEnabled = controles;
+                txtSenha.IsEnabled = controles;
+                btnSalvar.IsEnabled = controles;
+
+                txtSenha.Text = "";
+
             }
             catch (Exception ex)
             {
-                CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
+                // CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
             }
         }
 

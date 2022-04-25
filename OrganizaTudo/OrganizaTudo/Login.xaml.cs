@@ -22,7 +22,7 @@ namespace OrganizaTudo
                 Sessao usuario = await SessaoController.BuscarSessaoAsync();
                 if (usuario != null)
                 {
-                    if(usuario.manter) EfetuarLogin(usuario.apelido, usuario.senha, usuario.manter);
+                    if (usuario.manter) EfetuarLogin(usuario.apelido, usuario.senha, usuario.manter);
                 }
             }
             catch (Exception ex)
@@ -54,6 +54,15 @@ namespace OrganizaTudo
             try
             {
                 IniciarLoad();
+                // Trava todas as opções
+                bool controles = false;
+                txtApelido.IsEnabled = controles;
+                txtSenha.IsEnabled = controles;
+                btnLogin.IsEnabled = controles;
+                btnCriarConta.IsEnabled = controles;
+                btnOrganizacaoOffline.IsEnabled = controles;
+                cBoxManterConexao.IsEnabled = controles;
+
                 if (String.IsNullOrEmpty(apelido) || String.IsNullOrEmpty(senha))
                 {
                     lblErro.Text = $"Preencha todos os campos!";
@@ -73,6 +82,13 @@ namespace OrganizaTudo
                         lblErro.Text = "";
                         txtApelido.Text = "";
                         txtSenha.Text = "";
+                        controles = true;
+                        txtApelido.IsEnabled = controles;
+                        txtSenha.IsEnabled = controles;
+                        btnLogin.IsEnabled = controles;
+                        btnCriarConta.IsEnabled = controles;
+                        btnOrganizacaoOffline.IsEnabled = controles;
+                        cBoxManterConexao.IsEnabled = controles;
                         FinalizarLoad();
                     }
                     else

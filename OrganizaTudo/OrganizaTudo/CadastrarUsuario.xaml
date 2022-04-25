@@ -17,10 +17,12 @@
                 <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" IsPassword="True" Completed="btnCriarConta_Clicked" />
             </Frame>
 
-            <Button 
-                x:Name="btnCriarConta" Clicked="btnCriarConta_Clicked" BorderRadius="15" FontSize="Medium" Text="CRIAR CONTA" Margin="30" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" HeightRequest="60">
-            </Button>
-
+            <Grid>
+                <Button 
+                    x:Name="btnCriarConta" Clicked="btnCriarConta_Clicked" BorderRadius="15" FontSize="Medium" Text="CRIAR CONTA" Margin="30" Padding="0" TextColor="#FFFFFF" BackgroundColor="#35C0ED" HeightRequest="60">
+                </Button>
+                <ActivityIndicator x:Name="actInd" IsRunning="False" IsVisible="False" HorizontalOptions="Center" Color="White" />
+            </Grid>
             <Label x:Name="lblErro" FontAttributes="Bold" FontSize="Medium" TextColor="#AA0000" HorizontalTextAlignment="Center" Margin="0,10,0,0"></Label>
         
         </StackLayout>

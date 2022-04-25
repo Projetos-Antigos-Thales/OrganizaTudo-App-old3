@@ -1,7 +1,6 @@
 ﻿using System;
 using OrganizaTudo.Controllers;
 using OrganizaTudo.Models;
-using Plugin.Toast;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,7 +31,7 @@ namespace OrganizaTudo
 
                 if (response.error == null)
                 {
-                    CrossToastPopUp.Current.ShowToastMessage(response.message);
+                    // CrossToastPopUp.Current.ShowToastMessage(response.message);
                     await Navigation.PushAsync(new Home());
                 }
                 else
