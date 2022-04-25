@@ -54,18 +54,17 @@ namespace OrganizaTudo
             try
             {
                 IniciarLoad();
+
                 // Trava todas as opções
-                bool controles = false;
-                txtApelido.IsEnabled = controles;
-                txtSenha.IsEnabled = controles;
-                btnLogin.IsEnabled = controles;
-                btnCriarConta.IsEnabled = controles;
-                btnOrganizacaoOffline.IsEnabled = controles;
-                cBoxManterConexao.IsEnabled = controles;
+                ControlarComponentes(false);
 
                 if (String.IsNullOrEmpty(apelido) || String.IsNullOrEmpty(senha))
                 {
                     lblErro.Text = $"Preencha todos os campos!";
+
+                    // Destrava todas as opções
+                    ControlarComponentes(true);
+
                     FinalizarLoad();
                 }
                 else
@@ -82,13 +81,10 @@ namespace OrganizaTudo
                         lblErro.Text = "";
                         txtApelido.Text = "";
                         txtSenha.Text = "";
-                        controles = true;
-                        txtApelido.IsEnabled = controles;
-                        txtSenha.IsEnabled = controles;
-                        btnLogin.IsEnabled = controles;
-                        btnCriarConta.IsEnabled = controles;
-                        btnOrganizacaoOffline.IsEnabled = controles;
-                        cBoxManterConexao.IsEnabled = controles;
+
+                        // Destrava todas as opções
+                        ControlarComponentes(true);
+
                         FinalizarLoad();
                     }
                     else
@@ -125,6 +121,16 @@ namespace OrganizaTudo
         {
             lblErro.Text = "";
             EfetuarLogin(txtApelido.Text, txtSenha.Text, cBoxManterConexao.IsChecked);
+        }
+
+        private void ControlarComponentes(bool atividade)
+        {
+            txtApelido.IsEnabled = atividade;
+            txtSenha.IsEnabled = atividade;
+            btnLogin.IsEnabled = atividade;
+            btnCriarConta.IsEnabled = atividade;
+            btnOrganizacaoOffline.IsEnabled = atividade;
+            cBoxManterConexao.IsEnabled = atividade;
         }
 
     }

@@ -233,14 +233,8 @@ namespace OrganizaTudo
             try
             {
                 // Trava todas as opções
-                bool controles = false;
-                actInd.IsRunning = !controles;
-                actInd.IsVisible = !controles;
-                txtApelido.IsEnabled = controles;
-                txtEmail.IsEnabled = controles;
-                txtSenha.IsEnabled = controles;
-                btnSalvar.IsEnabled = controles;
                 btnSalvar.Text = "";
+                ControlarComponentes(true);
 
                 UsuarioController usuarioController = new UsuarioController();
 
@@ -253,6 +247,9 @@ namespace OrganizaTudo
                 }
                 else
                 {
+                    // Destrava todas as opções
+                    btnSalvar.Text = "ATUALIZAR DADOS";
+                    ControlarComponentes(true);
                     // CrossToastPopUp.Current.ShowToastError(response.error);
                 }
             }
@@ -278,22 +275,28 @@ namespace OrganizaTudo
                 }
 
                 // Destrava todas as opções
-                bool controles = true;
                 btnSalvar.Text = "ATUALIZAR DADOS";
-                actInd.IsRunning = !controles;
-                actInd.IsVisible = !controles;
-                txtApelido.IsEnabled = controles;
-                txtEmail.IsEnabled = controles;
-                txtSenha.IsEnabled = controles;
-                btnSalvar.IsEnabled = controles;
-
-                txtSenha.Text = "";
+                ControlarComponentes(true);
 
             }
             catch (Exception ex)
             {
                 // CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
             }
+        }
+
+        private void ControlarComponentes(bool atividade)
+        {
+            actInd.IsRunning = !atividade;
+            actInd.IsVisible = !atividade;
+            txtApelido.IsEnabled = atividade;
+            txtEmail.IsEnabled = atividade;
+            txtSenha.IsEnabled = atividade;
+            btnSalvar.IsEnabled = atividade;
+            imgSair.IsEnabled = atividade;
+            imgAdd.IsEnabled = atividade;
+            lv.IsEnabled = atividade;
+            txtSearch.IsEnabled = atividade;
         }
 
     }

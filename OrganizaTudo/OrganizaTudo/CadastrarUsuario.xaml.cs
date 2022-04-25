@@ -21,6 +21,9 @@ namespace OrganizaTudo
                 if (string.IsNullOrEmpty(txtApelido.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtSenha.Text))
                 {
                     lblErro.Text = $"Preencha todos os campos!";
+
+                    // Destrava todas as opções
+                    ControlarComponentes(true);
                 }
                 else
                 {
@@ -28,26 +31,15 @@ namespace OrganizaTudo
                     btnCriarConta.Text = "";
 
                     // Trava todas as opções
-                    bool controles = false;
-                    actInd.IsRunning = !controles;
-                    actInd.IsVisible = !controles;
-                    txtApelido.IsEnabled = controles;
-                    txtEmail.IsEnabled = controles;
-                    txtSenha.IsEnabled = controles;
-                    btnCriarConta.IsEnabled = controles;
+                    ControlarComponentes(false);
 
                     // Se não houver response.erro, significa que a conta foi criada corretamente
                     Response response = await UsuarioController.CriarConta(txtApelido.Text, txtEmail.Text, txtSenha.Text);
 
                     btnCriarConta.Text = "CRIAR CONTA";
 
-                    controles = true;
-                    actInd.IsRunning = !controles;
-                    actInd.IsVisible = !controles;
-                    txtApelido.IsEnabled = controles;
-                    txtEmail.IsEnabled = controles;
-                    txtSenha.IsEnabled = controles;
-                    btnCriarConta.IsEnabled = controles;
+                    // Destrava todas as opções
+                    ControlarComponentes(true);
 
                     if (response.error == null)
                     {
@@ -69,5 +61,16 @@ namespace OrganizaTudo
             }
 
         }
+
+        private void ControlarComponentes(bool atividade)
+        {
+            actInd.IsRunning = !atividade;
+            actInd.IsVisible = !atividade;
+            txtApelido.IsEnabled = atividade;
+            txtEmail.IsEnabled = atividade;
+            txtSenha.IsEnabled = atividade;
+            btnCriarConta.IsEnabled = atividade;
+        }
+    
     }
 }
