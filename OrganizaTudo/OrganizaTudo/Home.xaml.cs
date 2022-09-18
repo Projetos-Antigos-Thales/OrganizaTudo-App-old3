@@ -43,8 +43,13 @@ namespace OrganizaTudo
         // Faz o logoff do usuário
         private async void btnSair_Clicked(object sender, EventArgs e)
         {
-            SessaoController.FinalizarSessaoAsync();
-            await Navigation.PopAsync();
+            bool confirm = await DisplayAlert("Sair", "Tem certeza que deseja sair de sua conta?", "Sim", "Cancelar");
+
+            if (confirm)
+            {
+                SessaoController.FinalizarSessaoAsync();
+                await Navigation.PopAsync();
+            }
         }
 
         // Obtem as notas online
@@ -129,7 +134,6 @@ namespace OrganizaTudo
             {
                 NotasController notasController = new NotasController();
 
-
                 bool confirm = await DisplayAlert("Excluir Nota", "Tem certeza que deseja excluir essa nota?", "Sim", "Cancelar");
 
                 if (confirm)
@@ -147,7 +151,7 @@ namespace OrganizaTudo
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
             }
@@ -255,7 +259,7 @@ namespace OrganizaTudo
                     lblErro.Text = response.error;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
             }
@@ -281,7 +285,7 @@ namespace OrganizaTudo
                 ControlarComponentes(true);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // CrossToastPopUp.Current.ShowToastError($"Oorreu um erro: {ex.Message}");
             }
