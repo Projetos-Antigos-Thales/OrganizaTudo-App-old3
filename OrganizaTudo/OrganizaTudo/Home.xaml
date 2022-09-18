@@ -58,17 +58,17 @@
         <StackLayout>
 
             <Label x:Name="lblTitulo" FontSize="26" HorizontalTextAlignment="Center" Margin="0,30,0,0">Alteração de Apelido e E-mail</Label>
-            
-            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,0" Padding="20,13,20,13" >
-                <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" ReturnType="Next" />
+
+            <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,0" Padding="20,10,20,10" >
+                <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" ReturnType="Next" TextColor="White" />
             </Frame>
 
-            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,10" Padding="20,13,20,13" >
-                <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" ReturnType="Next" />
+            <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,10" Padding="20,10,20,10" >
+                <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" ReturnType="Next" TextColor="White" />
             </Frame>
 
-            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,0" Padding="20,13,20,13" >
-                <Entry x:Name="txtSenha" Placeholder="Senha atual" FontSize="Large" IsPassword="True" Completed="Dados_Inseridos" />
+            <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,0" Padding="20,10,20,10" >
+                <Entry x:Name="txtSenha" Placeholder="Senha atual" FontSize="Large" IsPassword="True" Completed="Dados_Inseridos" TextColor="White" />
             </Frame>
 
 
