@@ -62,11 +62,11 @@
             <Label x:Name="lblTitulo" FontSize="26" HorizontalTextAlignment="Center" Margin="0,30,0,0">Alteração de Apelido e E-mail</Label>
 
             <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,0" Padding="20,10,20,10" >
-                <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" ReturnType="Next" TextColor="White" PlaceholderColor="White" />
+                <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" IsTextPredictionEnabled="True" ReturnType="Next" TextColor="White" PlaceholderColor="White" />
             </Frame>
 
             <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,10" Padding="20,10,20,10" >
-                <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" ReturnType="Next" TextColor="White" PlaceholderColor="White" />
+                <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" IsTextPredictionEnabled="True" ReturnType="Next" TextColor="White" PlaceholderColor="White" />
             </Frame>
 
             <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,0" Padding="20,10,20,10" >

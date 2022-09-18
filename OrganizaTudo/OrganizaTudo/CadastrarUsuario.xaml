@@ -6,11 +6,11 @@
         <StackLayout>
 
             <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
-                <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" ReturnType="Next" TextColor="White" PlaceholderColor="White" />
+                <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" ReturnType="Next" TextColor="White" IsTextPredictionEnabled="True" PlaceholderColor="White" />
             </Frame>
 
             <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
-                <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" ReturnType="Next" TextColor="White" PlaceholderColor="White" />
+                <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" ReturnType="Next" TextColor="White" IsTextPredictionEnabled="True" PlaceholderColor="White" />
             </Frame>
 
             <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
