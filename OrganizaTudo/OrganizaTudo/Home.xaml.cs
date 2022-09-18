@@ -63,6 +63,11 @@ namespace OrganizaTudo
             // Revertendo a ordem da lista, devido comportamento da API
             notas.Reverse();
 
+            if (notas.Count == 0)
+            {
+                lblNenhumaNota.IsVisible = true;
+            }
+
             notasOnline = notas;
             notasOffline = notas;
             lv.ItemsSource = notas;

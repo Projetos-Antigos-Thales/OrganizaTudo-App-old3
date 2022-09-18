@@ -129,7 +129,7 @@ namespace OrganizaTudo
             txtSenha.IsEnabled = atividade;
             btnLogin.IsEnabled = atividade;
             btnCriarConta.IsEnabled = atividade;
-            btnOrganizacaoOffline.IsEnabled = atividade;
+            // btnOrganizacaoOffline.IsEnabled = atividade;
             cBoxManterConexao.IsEnabled = atividade;
         }
 

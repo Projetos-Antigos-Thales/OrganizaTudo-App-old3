@@ -36,7 +36,7 @@
 
         <Label x:Name="lblErro" FontAttributes="Bold" FontSize="Medium" TextColor="#AA0000" HorizontalTextAlignment="Center" Margin="0,0,0,0"></Label>
 
-        <Button x:Name="btnOrganizacaoOffline" TextColor="#35C0ED" FontSize="20" Margin="0,0,0,30" Text="ORGANIZAÇÃO OFFLINE" BackgroundColor="Transparent" VerticalOptions="EndAndExpand"></Button>
+        <!--<Button x:Name="btnOrganizacaoOffline" TextColor="#35C0ED" FontSize="20" Margin="0,0,0,30" Text="ORGANIZAÇÃO OFFLINE" BackgroundColor="Transparent" VerticalOptions="EndAndExpand"></Button>-->
         
     </StackLayout>
 
