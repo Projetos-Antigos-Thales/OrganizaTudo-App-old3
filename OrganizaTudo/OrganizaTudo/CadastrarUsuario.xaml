@@ -5,16 +5,16 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
-                <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" ReturnType="Next" />
+            <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
+                <Entry x:Name="txtApelido" Placeholder="Apelido" FontSize="Large" ReturnType="Next" TextColor="White" PlaceholderColor="White" />
             </Frame>
 
-            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
-                <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" ReturnType="Next" />
+            <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
+                <Entry x:Name="txtEmail" Placeholder="E-mail" FontSize="Large" ReturnType="Next" TextColor="White" PlaceholderColor="White" />
             </Frame>
 
-            <Frame BackgroundColor="LightGray" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
-                <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" IsPassword="True" Completed="btnCriarConta_Clicked" />
+            <Frame BackgroundColor="#35C0ED" CornerRadius="20" Margin="30,30,30,0" Padding="20,12,20,13" >
+                <Entry x:Name="txtSenha" Placeholder="Senha" FontSize="Large" IsPassword="True" Completed="btnCriarConta_Clicked" TextColor="White" PlaceholderColor="White" />
             </Frame>
 
             <Grid>
